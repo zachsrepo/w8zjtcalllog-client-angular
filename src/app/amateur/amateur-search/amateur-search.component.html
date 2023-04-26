@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+<header>
+    <span id="pageTitle">{{pageTitle}}</span>
+</header>
+<table *ngIf="hamEn" class="table table-sm">
+    <thead>
+        <tr><th class="tablename">FCC Database</th></tr>
+        <tr>
+            <th>FCC ID</th>
+            <th>Callsign</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{hamEn.fccid}}</td>
+            <td>{{hamEn.callsign}}</td>
+            <td>{{hamEn.fullName}}</td>
+            <td>{{hamEn.address1}}</td>
+            <td>{{hamEn.city}}</td>
+            <td>{{hamEn.state}}</td>
+            <td>{{hamEn.zip}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+<nav>
+
+    
+        <ul>
+        <li class="menutitle"><a class="active">W8ZJT Calllog program</a></li>
+        <li *ngFor="let m of menus">  
+            <a routerLink="{{m.route}}">{{m.display}}</a>
+        </li>
+        
+        <li class="slist">
+            <button (click)="search()" class="btn btn-primary btn-sm">Search:</button>
+        </li>
+        <li class="inlinea">
+            <a class="active"><input [(ngModel)]="searchCallsign" type="search"></a>
+        </li>
+        <li>
+            <select class="selectlist">
+                <option>Callsign</option>
+                <option>Last Name</option>
+                <option>FCC ID</option>
+            </select>
+        </li>
+    
+        <li style="float:right">
+            <a (click)="logout()"routerLink="logout">Logout</a>
+        </li>
+    </ul>
+    
+
+</nav>

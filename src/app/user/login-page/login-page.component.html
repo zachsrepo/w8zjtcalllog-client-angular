@@ -1,0 +1,14 @@
+<div>
+    <h1>W8ZJT Calllog</h1>
+     <h3>Login Here</h3>
+      <form  [formGroup]="loginForm" (ngSubmit)="loginuser()">
+        <div>
+          <label for="username">Username</label>
+          <input formControlName="username"  required  type="email">
+          <label for="password">Password</label>
+          <input formControlName="password"  type="password">
+        </div>
+        <button>Login</button>
+
+      </form>
+  </div>
