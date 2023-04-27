@@ -1,0 +1,30 @@
+.privious {
+    overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
+    height: 400px; /* gives an initial height of 200px to the table */
+    width: 700px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  .privious thead th {
+    position: sticky; /* make the table heads sticky */
+    top: 0px; /* table head will be placed from the top of the table and sticks to it */
+    text-align: center;
+  }
+  table {
+    border-collapse: collapse; /* make the table borders collapse to each other */
+    width: auto;
+  }
+  .newlogtable{
+    margin-top: 20px;
+  }
+
+  .newlogtable tr:nth-child(odd){
+    background: #898585;
+  }
+  input {
+    width: auto;
+  }
+     
+
+  

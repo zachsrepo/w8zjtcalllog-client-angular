@@ -12,6 +12,7 @@ import { UserChangeComponent } from './user/user-change/user-change.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { AmateurSearchComponent } from './amateur/amateur-search/amateur-search.component';
+import { HamlogListcreateComponent } from './hamlog/hamlog-listcreate/hamlog-listcreate.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AmateurSearchComponent } from './amateur/amateur-search/amateur-search.
     UserChangeComponent,
     UserCreateComponent,
     UserDetailComponent,
-    AmateurSearchComponent
+    AmateurSearchComponent,
+    HamlogListcreateComponent
   ],
   imports: [
     BrowserModule,

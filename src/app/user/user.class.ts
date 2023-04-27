@@ -1,3 +1,5 @@
+import { Hamlog } from "../hamlog/hamlog.class";
+
 export class User{
     id: number = 0;
     isAdmin: boolean = false;
@@ -15,4 +17,5 @@ export class User{
     defaultMode: string = "SSB";
     defaultPower: number = 100;
     status: string = "NEW";
+    hamLogs!: Hamlog[]
 }

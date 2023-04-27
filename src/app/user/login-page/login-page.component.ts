@@ -33,6 +33,7 @@ export class LoginPageComponent {
         if(this.user){
           this.loggersvc.isLoggedin = true;
           this.loggersvc.user = this.user;
+          this.loggersvc.userId = this.user.id;
           console.log("Login Successful")
           this.loginForm.reset()
         this.router.navigate(["home"])
