@@ -3,12 +3,13 @@
 <header>
     <span id="pageTitle">{{pageTitle}}</span>
 </header>
-<div class="container">
+<div class="tableFixHead">
 <table *ngIf="user" class="table-fixed">
     <thead>
         
         
         <tr>
+            <th><a (click)="selectColumn('id')" class=" btn btn-link">Id</a></th>
             <th>Callsign</th>
             <th>Name</th>
             <th>Frequency</th>
@@ -16,13 +17,20 @@
             <th>Power</th>
             <th>State</th>
             <th>Zip</th>
+            <th><a (click)="selectColumn('dateAndTime')" class=" btn btn-link">Date</a></th>
+            <th>Time</th>
+            <th>RSTs</th>
+            <th>RSTr</th>
+            <th>FCC Id</th>
+            <th>Comments</th>
             <th id="actionhead">Action</th>
             <th></th>
             
         </tr>
     </thead>
-    <tbody>
-        <tr *ngFor="let h of hamlogs">
+    <tbody *ngIf="searching">
+        <tr *ngFor="let h of hamlogs | sorthamlog:sortColumn:sortAsc">
+            <td>{{h.id}}</td>
             <td>{{h.callsign}}</td>
             <td>{{h.firstName}} {{h.lastName}}</td>
             <td>{{h.frequency}}</td>
@@ -30,8 +38,35 @@
             <td>{{h.power}}</td>
             <td>{{h.state}}</td>
             <td>{{h.postalCode}}</td>
-            <td id="actiondata"><a class="btn btn-primary btn-sm">Details</a> | 
-            <a class="btn btn-warning btn-sm">Update</a></td>
+            <td>{{h.dateAndTime | date:'shortDate'}}</td>
+            <td>{{h.dateAndTime | date:'mediumTime'}}</td>
+            <td>{{h.rsTsent}}</td>
+            <td>{{h.rsTrec}}</td>
+            <td>{{h.fccId}}</td>
+            <td>{{h.comments}}</td>
+            <td id="actiondata"><a routerLink="/hamlog/details/{{h.id}}">Details</a> | 
+            <a routerLink="/hamlog/update/{{h.id}}">Update</a></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="!searching">
+        <tr *ngFor="let h of searchHamLogs | sorthamlog:sortColumn:sortAsc">
+            <td>{{h.id}}</td>
+            <td>{{h.callsign}}</td>
+            <td>{{h.firstName}} {{h.lastName}}</td>
+            <td>{{h.frequency}}</td>
+            <td>{{h.mode}}</td>
+            <td>{{h.power}}</td>
+            <td>{{h.state}}</td>
+            <td>{{h.postalCode}}</td>
+            <td>{{h.dateAndTime | date:'shortDate'}}</td>
+            <td>{{h.dateAndTime | date:'mediumTime'}}</td>
+            <td>{{h.rsTsent}}</td>
+            <td>{{h.rsTrec}}</td>
+            <td>{{h.fccId}}</td>
+            <td>{{h.comments}}</td>
+            <td id="actiondata"><a routerLink="/hamlog/details/{{h.id}}">Details</a> | 
+            <a routerLink="/hamlog/update.{{h.id}}">Update</a></td>
             <td></td>
         </tr>
     </tbody>
@@ -56,7 +91,13 @@
             <td><input [(ngModel)]="newlog.callsign" (blur)="search()" (focus)="clear()"></td>
             <td><input [(ngModel)]="newlog.frequency"></td>
             <td><input [(ngModel)]="newlog.band"></td>
-            <td><input [(ngModel)]="newlog.mode"></td>
+            <td><select [(ngModel)]="newlog.mode">
+                <option>LSB</option>
+                <option>USB</option>
+                <option>AM</option>
+                <option>CW</option>
+                <option>DIG</option>
+            </select></td>
             <td><input [(ngModel)]="newlog.power"></td>
             <td><input [(ngModel)]="newlog.rsTsent"></td>
             <td><input [(ngModel)]="newlog.rsTrec"></td>
@@ -82,7 +123,7 @@
             <td><input [(ngModel)]="newlog.state"></td>
             <td><input [(ngModel)]="newlog.postalCode"></td>
             <td><input [(ngModel)]="newlog.country"></td>
-            <td><input [(ngModel)]="newlog.dateAndTime" readonly></td>
+            <td><input [ngModel]="newlog.dateAndTime | date:'medium'"></td>
             <td><input [(ngModel)]="newlog.firstName"></td>
         </tr>
     </tbody>

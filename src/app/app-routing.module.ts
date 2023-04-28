@@ -9,6 +9,7 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserChangeComponent } from './user/user-change/user-change.component';
 import { AmateurSearchComponent } from './amateur/amateur-search/amateur-search.component';
 import { HamlogListcreateComponent } from './hamlog/hamlog-listcreate/hamlog-listcreate.component';
+import { HamlogDetailComponent } from './hamlog/hamlog-detail/hamlog-detail.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:"user/create", component:UserCreateComponent, canActivate: [authGuard]},
   {path:"logging/newlog/:userId", component:HamlogListcreateComponent, canActivate: [authGuard]},
   {path:"amateur/search/:callsign", component:AmateurSearchComponent, canActivate: [authGuard]},
+  {path:"hamlog/details/:id", component:HamlogDetailComponent, canActivate: [authGuard]},
 ];
 
 @NgModule({

@@ -1,41 +1,12 @@
-body {
-  background-color: #bdc3c7;
-}
-#actiondata{
-  width: 200px;
-}
-#actionhead {
-  width: auto;
-}
-.table-fixed {
-  width: auto;
+.tableFixHead          { overflow: auto; height: 300px; }
+.tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
 
-}
-.table-fixed tbody {
-  height: 200px;
-  overflow-y: auto;
-  width: 100%;
-}
-.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-  display: inline-block;
-  
-}
-.table-fixed tbody tr td {
-  float: left;
-  width: 100px;
-  display: inline;
-}
-.table-fixed thead tr th {
-  float: left;
-  width: 100px;
-  height: 30px;
-  background-color: #f39c12;
-  border-color: #e67e22;
-}
-.table-fixed tbody tr:nth-child(even) {
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: auto; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }
+th a{ text-decoration: none; color: black; font-weight: bold;}
+
+tr:nth-child(even) {
   background-color: #f2f2f2;
-}
-
-.container {
-  width: 1000px;
 }

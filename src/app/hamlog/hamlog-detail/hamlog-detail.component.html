@@ -1,0 +1,53 @@
+<div id="component">
+    <app-menu></app-menu>
+    <header>
+        
+        <span id="pageTitle">{{pageTitle}}</span>
+    </header>
+    <main>
+        <table class="table table-striped table-sm" *ngIf="hamlog">
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td><input [(ngModel)]="hamlog.id" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Callsign</td>
+                    <td><input [(ngModel)]="hamlog.callsign" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td><input [(ngModel)]="hamlog.firstName" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input [(ngModel)]="hamlog.lastName" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Frequency</td>
+                    <td><input [(ngModel)]="hamlog.frequency" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Mode</td>
+                    <td><input [(ngModel)]="hamlog.mode" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Power</td>
+                    <td><input [(ngModel)]="hamlog.power" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input [(ngModel)]="hamlog.address" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td><input [(ngModel)]="hamlog.city" readonly disabled="true"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a *ngIf="hamlog" routerLink="/logging/newlog/{{hamlog.userId}}" class="btn btn-primary btn-sm">Back</a>
+        <button (click)="delete()" class="btn btn-danger btn-sm">Delete</button>
+        <button *ngIf="areYouSure" (click)="deleteVerified()" class="btn btn-danger btn-sm">ARE YOU SURE?</button>
+        
+    </main>
+</div>

@@ -14,7 +14,7 @@ export class User{
     logMode: string = "NORMAL";
     numberOfCallsToShow: number = 10;
     priviousCallsToShow: number = 10;
-    defaultMode: string = "SSB";
+    defaultMode: string = "LSB";
     defaultPower: number = 100;
     status: string = "NEW";
     hamLogs!: Hamlog[]

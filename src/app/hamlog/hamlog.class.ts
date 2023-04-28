@@ -1,3 +1,4 @@
+import { DatePipe } from "@angular/common";
 import { User } from "../user/user.class";
 
 export class Hamlog {
@@ -26,7 +27,7 @@ export class Hamlog {
     comments: string = "";
     qth: string = "";
     logCount: number = 0;
-    dateAndTime!: string;
+    dateAndTime: string | null = null;
     timeOff!: string;
 
 }

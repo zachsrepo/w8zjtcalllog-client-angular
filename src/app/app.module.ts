@@ -13,6 +13,9 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { AmateurSearchComponent } from './amateur/amateur-search/amateur-search.component';
 import { HamlogListcreateComponent } from './hamlog/hamlog-listcreate/hamlog-listcreate.component';
+import { FreqencyPipe } from './pipes/freqency.pipe';
+import { SorthamlogPipe } from './pipes/sorthamlog.pipe';
+import { HamlogDetailComponent } from './hamlog/hamlog-detail/hamlog-detail.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { HamlogListcreateComponent } from './hamlog/hamlog-listcreate/hamlog-lis
     UserCreateComponent,
     UserDetailComponent,
     AmateurSearchComponent,
-    HamlogListcreateComponent
+    HamlogListcreateComponent,
+    FreqencyPipe,
+    SorthamlogPipe,
+    HamlogDetailComponent
   ],
   imports: [
     BrowserModule,
