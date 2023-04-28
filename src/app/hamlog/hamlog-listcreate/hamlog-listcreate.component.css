@@ -1,30 +1,41 @@
-.privious {
-    overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
-    height: 400px; /* gives an initial height of 200px to the table */
-    width: 700px;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-left: 10px;
-  }
-  .privious thead th {
-    position: sticky; /* make the table heads sticky */
-    top: 0px; /* table head will be placed from the top of the table and sticks to it */
-    text-align: center;
-  }
-  table {
-    border-collapse: collapse; /* make the table borders collapse to each other */
-    width: auto;
-  }
-  .newlogtable{
-    margin-top: 20px;
-  }
+body {
+  background-color: #bdc3c7;
+}
+#actiondata{
+  width: 200px;
+}
+#actionhead {
+  width: auto;
+}
+.table-fixed {
+  width: auto;
 
-  .newlogtable tr:nth-child(odd){
-    background: #898585;
-  }
-  input {
-    width: auto;
-  }
-     
-
+}
+.table-fixed tbody {
+  height: 200px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: inline-block;
   
+}
+.table-fixed tbody tr td {
+  float: left;
+  width: 100px;
+  display: inline;
+}
+.table-fixed thead tr th {
+  float: left;
+  width: 100px;
+  height: 30px;
+  background-color: #f39c12;
+  border-color: #e67e22;
+}
+.table-fixed tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.container {
+  width: 1000px;
+}

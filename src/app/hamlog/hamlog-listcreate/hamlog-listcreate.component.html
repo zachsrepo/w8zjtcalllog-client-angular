@@ -3,11 +3,11 @@
 <header>
     <span id="pageTitle">{{pageTitle}}</span>
 </header>
-<div class="privious">
-<table *ngIf="user" class="table table-striped table-sm">
-    <thead class="prithead">
+<div class="container">
+<table *ngIf="user" class="table-fixed">
+    <thead>
         
-        <tr><th class="tablename">Privious Logs</th></tr>
+        
         <tr>
             <th>Callsign</th>
             <th>Name</th>
@@ -16,12 +16,11 @@
             <th>Power</th>
             <th>State</th>
             <th>Zip</th>
-            <th>Action</th>
+            <th id="actionhead">Action</th>
+            <th></th>
+            
         </tr>
     </thead>
-
-
-    
     <tbody>
         <tr *ngFor="let h of hamlogs">
             <td>{{h.callsign}}</td>
@@ -31,8 +30,9 @@
             <td>{{h.power}}</td>
             <td>{{h.state}}</td>
             <td>{{h.postalCode}}</td>
-            <td><a class="btn btn-primary btn-sm">Details</a> |</td>
-            <td><a class="btn btn-warning btn-sm">Update</a></td>
+            <td id="actiondata"><a class="btn btn-primary btn-sm">Details</a> | 
+            <a class="btn btn-warning btn-sm">Update</a></td>
+            <td></td>
         </tr>
     </tbody>
 </table>

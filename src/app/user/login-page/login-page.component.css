@@ -1,0 +1,13 @@
+#component {
+    align-items: center;
+    margin: 200px;
+    text-align:center;
+}
+#title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}

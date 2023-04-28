@@ -1,14 +1,21 @@
-<div>
-    <h1>W8ZJT Calllog</h1>
+<div id="component">
+    <span id="title">{{pageTitle}}</span>
      <h3>Login Here</h3>
       <form  [formGroup]="loginForm" (ngSubmit)="loginuser()">
         <div>
-          <label for="username">Username</label>
-          <input formControlName="username"  required  type="email">
-          <label for="password">Password</label>
-          <input formControlName="password"  type="password">
+          <table class="center">
+            <tr>
+          <td><input formControlName="username"  required  type="username" placeholder="Username"></td>
+              </tr>
+              <tr>
+                <td><input formControlName="password"  type="password" placeholder="Password"></td>
+              </tr>
+              <tr>
+                <td colspan="2" class="text-danger fw-bold fst-italic">{{message}}</td>
+            </tr>
+          </table>
         </div>
-        <button>Login</button>
-
+        <button class="btn btn-primary btn-sm">Login</button>
+      
       </form>
   </div>

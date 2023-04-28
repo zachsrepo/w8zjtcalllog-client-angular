@@ -13,6 +13,8 @@ import { LoggerService } from '../logger.service';
 export class LoginPageComponent {
   public loginForm!: FormGroup
   private user: User = {} as any;
+  message: string = "";
+  pageTitle = "W8ZJT CallLog";
  
   constructor(
     private svcusr: UserService,
@@ -35,6 +37,7 @@ export class LoginPageComponent {
           this.loggersvc.user = this.user;
           this.loggersvc.userId = this.user.id;
           console.log("Login Successful")
+          this.message = "Login Successful";
           this.loginForm.reset()
         this.router.navigate(["home"])
         }
@@ -42,6 +45,7 @@ export class LoginPageComponent {
       error: (err) => {
         if(err.status == 404){
           console.warn("NOT FOUND");
+          this.message = "Incorrect Username or Password / Login Failed";
         }
         else{
           console.error(err);
