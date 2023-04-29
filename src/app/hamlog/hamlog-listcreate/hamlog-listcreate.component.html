@@ -2,6 +2,7 @@
 <app-menu></app-menu>
 <header>
     <span id="pageTitle">{{pageTitle}}</span>
+    <span id="searchResCount" *ngIf="!searching">{{searchResMessage}}</span>
 </header>
 <div class="tableFixHead">
 <table *ngIf="user" class="table-fixed">
@@ -13,12 +14,14 @@
             <th>Callsign</th>
             <th>Name</th>
             <th>Frequency</th>
+            <th>Band</th>
             <th>Mode</th>
             <th>Power</th>
             <th>State</th>
             <th>Zip</th>
             <th><a (click)="selectColumn('dateAndTime')" class=" btn btn-link">Date</a></th>
-            <th>Time</th>
+            <th>T-On</th>
+            <th>T-Off</th>
             <th>RSTs</th>
             <th>RSTr</th>
             <th>FCC Id</th>
@@ -34,12 +37,14 @@
             <td>{{h.callsign}}</td>
             <td>{{h.firstName}} {{h.lastName}}</td>
             <td>{{h.frequency}}</td>
+            <td>{{h.band}}</td>
             <td>{{h.mode}}</td>
             <td>{{h.power}}</td>
             <td>{{h.state}}</td>
             <td>{{h.postalCode}}</td>
             <td>{{h.dateAndTime | date:'shortDate'}}</td>
             <td>{{h.dateAndTime | date:'mediumTime'}}</td>
+            <td>{{h.timeOff | date:'mediumTime'}}</td>
             <td>{{h.rsTsent}}</td>
             <td>{{h.rsTrec}}</td>
             <td>{{h.fccId}}</td>
@@ -55,12 +60,14 @@
             <td>{{h.callsign}}</td>
             <td>{{h.firstName}} {{h.lastName}}</td>
             <td>{{h.frequency}}</td>
+            <td>{{h.band}}</td>
             <td>{{h.mode}}</td>
             <td>{{h.power}}</td>
             <td>{{h.state}}</td>
             <td>{{h.postalCode}}</td>
             <td>{{h.dateAndTime | date:'shortDate'}}</td>
             <td>{{h.dateAndTime | date:'mediumTime'}}</td>
+            <td>{{h.timeOff | date:'mediumTime'}}</td>
             <td>{{h.rsTsent}}</td>
             <td>{{h.rsTrec}}</td>
             <td>{{h.fccId}}</td>
@@ -88,8 +95,8 @@
     </thead>
     <tbody>
         <tr>
-            <td><input [(ngModel)]="newlog.callsign" (blur)="search()" (focus)="clear()"></td>
-            <td><input [(ngModel)]="newlog.frequency"></td>
+            <td><input id="callsign" [(ngModel)]="newlog.callsign" (blur)="search()" (focus)="clear()"></td>
+            <td><input [(ngModel)]="enteredfreq" (ngModelChange)="freqChange()" (blur)="freqBlur()"></td>
             <td><input [(ngModel)]="newlog.band"></td>
             <td><select [(ngModel)]="newlog.mode">
                 <option>LSB</option>
@@ -107,26 +114,29 @@
     </tbody>
     <thead>
         <tr>
+            <th>First Name</th>
             <th>Address</th>
             <th>City</th>
             <th>State</th>
             <th>Zip</th>
             <th>Country</th>
             <th>Date</th>
-            <th>First Name</th>
         </tr>
     </thead>
     <tbody>
         <tr>
+            <td><input id="firstname" [(ngModel)]="newlog.firstName"></td>
             <td><input [(ngModel)]="newlog.address"></td>
             <td><input [(ngModel)]="newlog.city"></td>
-            <td><input [(ngModel)]="newlog.state"></td>
+            <td><input [(ngModel)]="newlog.state" size="3"></td>
             <td><input [(ngModel)]="newlog.postalCode"></td>
             <td><input [(ngModel)]="newlog.country"></td>
             <td><input [ngModel]="newlog.dateAndTime | date:'medium'"></td>
-            <td><input [(ngModel)]="newlog.firstName"></td>
         </tr>
     </tbody>
 </table>
+<div id="save">
 <button (click)="search()" class="btn btn-primary btn-sm">Search</button>
 <button (click)="save()" class="btn btn-success btn-sm">Save</button>
+<span id="WARN">{{warnMessage}} {{warnMessageDesc}}</span>
+</div>

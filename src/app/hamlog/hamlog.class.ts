@@ -28,6 +28,6 @@ export class Hamlog {
     qth: string = "";
     logCount: number = 0;
     dateAndTime: string | null = null;
-    timeOff!: string;
+    timeOff: string | null = null;
 
 }

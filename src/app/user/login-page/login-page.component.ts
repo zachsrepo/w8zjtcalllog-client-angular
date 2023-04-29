@@ -39,7 +39,7 @@ export class LoginPageComponent {
           console.log("Login Successful")
           this.message = "Login Successful";
           this.loginForm.reset()
-        this.router.navigate(["home"])
+        this.router.navigate([`/logging/newlog/${this.user.id}`])
         }
       },
       error: (err) => {

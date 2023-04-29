@@ -10,3 +10,22 @@ th a{ text-decoration: none; color: black; font-weight: bold;}
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+#callsign {
+  width: 75px;
+}
+#firstname {
+  width: 75px;
+}
+#save {
+  display: inline-block;
+}
+#WARN {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+#searchResCount {
+  color: red;
+  margin-left: 20px;
+  font-weight: bold;
+}
