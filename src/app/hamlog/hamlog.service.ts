@@ -15,6 +15,9 @@ export class HamlogService {
   getByCallUser(callsign: string, userId: number): Observable<Hamlog[]> {
     return this.http.get(`${this.baseurl}/${callsign}/${userId}`) as Observable<Hamlog[]>;
   }
+  list(quantity: number, userId: number): Observable<Hamlog[]> {
+    return this.http.get(`${this.baseurl}/list/${userId}/${quantity}`) as Observable<Hamlog[]>;
+  }
   get(id: number): Observable<Hamlog> {
     return this.http.get(`${this.baseurl}/${id}`) as Observable<Hamlog>;
   }

@@ -4,6 +4,14 @@
     <span id="pageTitle">{{pageTitle}}</span>
     <span id="searchResCount" *ngIf="!searching">{{searchResMessage}}</span>
 </header>
+<select id="quantity" [(ngModel)]="logsToShow" (ngModelChange)="refresh()" *ngIf="searching">
+    <option>10</option>
+    <option>25</option>
+    <option>50</option>
+    <option>100</option>
+    <option>200</option>
+    <option value="50000">All</option>  
+</select>
 <div class="tableFixHead">
 <table *ngIf="user" class="table-fixed">
     <thead>
@@ -25,7 +33,7 @@
             <th>RSTs</th>
             <th>RSTr</th>
             <th>FCC Id</th>
-            <th>Comments</th>
+            
             <th id="actionhead">Action</th>
             <th></th>
             
@@ -48,7 +56,7 @@
             <td>{{h.rsTsent}}</td>
             <td>{{h.rsTrec}}</td>
             <td>{{h.fccId}}</td>
-            <td>{{h.comments}}</td>
+           
             <td id="actiondata"><a routerLink="/hamlog/details/{{h.id}}">Details</a> | 
             <a routerLink="/hamlog/update/{{h.id}}">Update</a></td>
             <td></td>
@@ -71,7 +79,7 @@
             <td>{{h.rsTsent}}</td>
             <td>{{h.rsTrec}}</td>
             <td>{{h.fccId}}</td>
-            <td>{{h.comments}}</td>
+      
             <td id="actiondata"><a routerLink="/hamlog/details/{{h.id}}">Details</a> | 
             <a routerLink="/hamlog/update.{{h.id}}">Update</a></td>
             <td></td>
@@ -132,6 +140,13 @@
             <td><input [(ngModel)]="newlog.postalCode"></td>
             <td><input [(ngModel)]="newlog.country"></td>
             <td><input [ngModel]="newlog.dateAndTime | date:'medium'"></td>
+        </tr>
+    </tbody>
+</table>
+<table>
+    <tbody>
+        <tr>
+            <th>Comments</th><td></td><td><input size="50" [(ngModel)]="newlog.comments"></td>
         </tr>
     </tbody>
 </table>

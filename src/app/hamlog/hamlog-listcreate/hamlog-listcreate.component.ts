@@ -11,6 +11,7 @@ import { HamlogService } from '../hamlog.service';
 import { FreqencyPipe } from 'src/app/pipes/freqency.pipe';
 import { CalcBandPipe } from 'src/app/pipes/calc-band.pipe';
 
+
 @Component({
   selector: 'app-hamlog-listcreate',
   templateUrl: './hamlog-listcreate.component.html',
@@ -24,6 +25,7 @@ export class HamlogListcreateComponent {
   searchResCount: number = 0;
   searchResMessage: string = "";
   newlog: Hamlog = new Hamlog();
+  logsToShow: string = "50";
   hamEn!: Amateuren;
   isaham: string = "";
   sortColumn: string = "id";
@@ -140,6 +142,14 @@ export class HamlogListcreateComponent {
         if(this.searchHamLogs.length < 1 && this.isaham === "notfound"){
           console.warn("NOT FOUND");
           this.warnMessage = "NOT FOUND!";
+          this.newlog.fullName = "";
+          this.newlog.firstName = "";
+          this.newlog.lastName = "";
+          this.newlog.address = "";
+          this.newlog.city = "";
+          this.newlog.state = "";
+          this.newlog.postalCode = "";
+          this.newlog.comments = "";
         }        
       },
       error: (err) => {
@@ -159,6 +169,7 @@ export class HamlogListcreateComponent {
         this.newlog.postalCode = this.hamEn.zip;
         this.newlog.fullName = this.hamEn.fullName;
         this.newlog.firstName = this.hamEn.first;
+        this.newlog.lastName = this.hamEn.last;
         this.newlog.userId = +this.user.id;
         this.newlog.fccId = this.hamEn.fccid.toString();
         let currentDate = Date.now();
@@ -182,9 +193,7 @@ export class HamlogListcreateComponent {
     this.urssvc.get(userId).subscribe({
       next: (res) => {
         this.user = res;
-        this.hamlogs = this.user.hamLogs;
-       // console.debug(this.user);
-        console.debug(this.hamlogs);
+        // this.hamlogs = this.user.hamLogs;
         this.newlog.mode = this.user.defaultMode;
         this.newlog.power = +this.user.defaultPower;        
       },
@@ -192,6 +201,15 @@ export class HamlogListcreateComponent {
         console.error(err);
       }
     });
+
+    this.hamsvc.list(Number(this.logsToShow), userId).subscribe({
+      next: (res) => {
+        this.hamlogs = res;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
   }
 
   ngOnInit(): void {

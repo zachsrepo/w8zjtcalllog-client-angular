@@ -43,6 +43,10 @@
                     <td>City</td>
                     <td><input [(ngModel)]="hamlog.city" readonly disabled="true"></td>
                 </tr>
+                <tr>
+                    <td>Comments</td>
+                    <td><input [(ngModel)]="hamlog.comments" readonly disabled="true"></td>
+                </tr>
             </tbody>
         </table>
         <a *ngIf="hamlog" routerLink="/logging/newlog/{{hamlog.userId}}" class="btn btn-primary btn-sm">Back</a>

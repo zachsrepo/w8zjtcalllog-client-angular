@@ -12,7 +12,7 @@ export class User{
     address: string = "";
     style: string = "";
     logMode: string = "NORMAL";
-    numberOfCallsToShow: number = 10;
+    numberOfCallsToShow: number = 50;
     priviousCallsToShow: number = 10;
     defaultMode: string = "LSB";
     defaultPower: number = 100;
