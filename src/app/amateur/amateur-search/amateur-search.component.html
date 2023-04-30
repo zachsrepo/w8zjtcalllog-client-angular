@@ -2,6 +2,7 @@
 <header>
     <span id="pageTitle">{{pageTitle}}</span>
 </header>
+
 <table *ngIf="hamEn" class="table table-sm">
     <thead>
         <tr><th class="tablename">FCC Database</th></tr>
@@ -27,3 +28,28 @@
         </tr>
     </tbody>
 </table>
+<table *ngIf="hamEn" class="table table-sm">
+    <thead>
+        <tr><th class="tablename">User Database</th></tr>
+        <tr>
+            <th>FCC ID</th>
+            <th>Callsign</th>
+            <th>Frequency</th>
+            <th>Band</th>
+            <th>Mode</th>
+            <th>Power</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let h of hamlogs">
+            <td>{{h.fccId}}</td>
+            <td>{{h.callsign}}</td>
+            <td>{{h.frequency}}</td>
+            <td>{{h.band}}</td>
+            <td>{{h.mode}}</td>
+            <td>{{h.power}}</td>
+            <td>{{h.dateAndTime | date:'long'}}</td>
+        </tr>
+    </tbody>
+    </table>

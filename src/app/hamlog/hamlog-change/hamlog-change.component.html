@@ -4,8 +4,8 @@
         
         <span id="pageTitle">{{pageTitle}}</span>
         <a *ngIf="hamlog" routerLink="/logging/newlog/{{hamlog.userId}}" class="btn btn-primary btn-sm">Back</a>
-        <button (click)="delete()" class="btn btn-danger btn-sm">Delete</button>
-        <button *ngIf="areYouSure" (click)="deleteVerified()" class="btn btn-danger btn-sm">ARE YOU SURE?</button>
+        <button (click)="save()" class="btn btn-success btn-sm">Save</button>
+   
     </header>
     <main>
         <table class="table table-striped table-sm" *ngIf="hamlog">
@@ -24,31 +24,37 @@
                 </tr>
                 <tr>
                     <td>First Name</td>
-                    <td><input [(ngModel)]="hamlog.firstName" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.firstName"></td>
                 </tr>
                 <tr>
                     <td>Last Name</td>
-                    <td><input [(ngModel)]="hamlog.lastName" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.lastName"></td>
                 </tr>
                 <tr>
                     <td>Frequency</td>
-                    <td><input [(ngModel)]="hamlog.frequency" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.frequency"></td>
                 </tr>
                 <tr>
                     <td>Mode</td>
-                    <td><input [(ngModel)]="hamlog.mode" readonly disabled="true"></td>
+                    <td><select [(ngModel)]="hamlog.mode">
+                        <option>LSB</option>
+                        <option>USB</option>
+                        <option>AM</option>
+                        <option>CW</option>
+                        <option>DIG</option>
+                    </select></td>
                 </tr>
                 <tr>
                     <td>Power</td>
-                    <td><input [(ngModel)]="hamlog.power" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.power"></td>
                 </tr>
                 <tr>
                     <td>RST Sent</td>
-                    <td><input [(ngModel)]="hamlog.rsTsent" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.rsTsent"></td>
                 </tr>
                 <tr>
                     <td>RST rcv</td>
-                    <td><input [(ngModel)]="hamlog.rsTrec" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.rsTrec"></td>
                 </tr>
                 <tr>
                     <td>T-On</td>
@@ -64,35 +70,35 @@
                 </tr>
                 <tr>
                     <td>Address</td>
-                    <td><input [(ngModel)]="hamlog.address" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.address"></td>
                 </tr>
                 <tr>
                     <td>City</td>
-                    <td><input [(ngModel)]="hamlog.city" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.city"></td>
                 </tr>
                 <tr>
                     <td>State</td>
-                    <td><input [(ngModel)]="hamlog.state" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.state"></td>
                 </tr>
                 <tr>
                     <td>Zip</td>
-                    <td><input [(ngModel)]="hamlog.postalCode" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.postalCode"></td>
                 </tr>
                 <tr>
                     <td>Alternate Callsign</td>
-                    <td><input [(ngModel)]="hamlog.altCallsign" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.altCallsign"></td>
                 </tr>
                 <tr>
                     <td>Call Modifier</td>
-                    <td><input [(ngModel)]="hamlog.callModifier" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.callModifier"></td>
                 </tr>
                 <tr>
                     <td>Reciprical</td>
-                    <td><input [(ngModel)]="hamlog.reciprical" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.reciprical"></td>
                 </tr>
                 <tr>
                     <td>Comments</td>
-                    <td><textarea [(ngModel)]="hamlog.comments" readonly disabled="true" rows="4" cols="50"></textarea></td>
+                    <td><textarea [(ngModel)]="hamlog.comments" rows="4" cols="50"></textarea></td>
                 </tr>
             </tbody>
         </table>

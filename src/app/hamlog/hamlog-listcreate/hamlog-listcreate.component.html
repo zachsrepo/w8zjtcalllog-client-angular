@@ -18,7 +18,7 @@
         
         
         <tr>
-            <th><a (click)="selectColumn('id')" class=" btn btn-link">Id</a></th>
+            
             <th>Callsign</th>
             <th>Name</th>
             <th>Frequency</th>
@@ -32,7 +32,7 @@
             <th>T-Off</th>
             <th>RSTs</th>
             <th>RSTr</th>
-            <th>FCC Id</th>
+            
             
             <th id="actionhead">Action</th>
             <th></th>
@@ -41,7 +41,7 @@
     </thead>
     <tbody *ngIf="searching">
         <tr *ngFor="let h of hamlogs | sorthamlog:sortColumn:sortAsc">
-            <td>{{h.id}}</td>
+            
             <td>{{h.callsign}}</td>
             <td>{{h.firstName}} {{h.lastName}}</td>
             <td>{{h.frequency}}</td>
@@ -55,7 +55,7 @@
             <td>{{h.timeOff | date:'mediumTime'}}</td>
             <td>{{h.rsTsent}}</td>
             <td>{{h.rsTrec}}</td>
-            <td>{{h.fccId}}</td>
+            
            
             <td id="actiondata"><a routerLink="/hamlog/details/{{h.id}}">Details</a> | 
             <a routerLink="/hamlog/update/{{h.id}}">Update</a></td>
@@ -64,7 +64,7 @@
     </tbody>
     <tbody *ngIf="!searching">
         <tr *ngFor="let h of searchHamLogs | sorthamlog:sortColumn:sortAsc">
-            <td>{{h.id}}</td>
+            
             <td>{{h.callsign}}</td>
             <td>{{h.firstName}} {{h.lastName}}</td>
             <td>{{h.frequency}}</td>
@@ -78,10 +78,10 @@
             <td>{{h.timeOff | date:'mediumTime'}}</td>
             <td>{{h.rsTsent}}</td>
             <td>{{h.rsTrec}}</td>
-            <td>{{h.fccId}}</td>
+    
       
             <td id="actiondata"><a routerLink="/hamlog/details/{{h.id}}">Details</a> | 
-            <a routerLink="/hamlog/update.{{h.id}}">Update</a></td>
+            <a routerLink="/hamlog/update/{{h.id}}">Update</a></td>
             <td></td>
         </tr>
     </tbody>
@@ -146,12 +146,12 @@
 <table>
     <tbody>
         <tr>
-            <th>Comments</th><td></td><td><input size="50" [(ngModel)]="newlog.comments"></td>
+            <th>Comments</th><td><textarea [(ngModel)]="newlog.comments" rows="3" cols="50"></textarea></td>
         </tr>
     </tbody>
 </table>
 <div id="save">
 <button (click)="search()" class="btn btn-primary btn-sm">Search</button>
-<button (click)="save()" class="btn btn-success btn-sm">Save</button>
+<button (click)="save()" class="btn btn-success btn-sm">Log Contact</button>
 <span id="WARN">{{warnMessage}} {{warnMessageDesc}}</span>
 </div>

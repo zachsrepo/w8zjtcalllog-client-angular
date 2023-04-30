@@ -13,6 +13,7 @@ import { LoggerService } from 'src/app/user/logger.service';
 export class MenuComponent {
   searchCallsign: string = "";
   menus: Menu[] = []
+  isAdmin: boolean = true;
   constructor(
     private usrsvc: UserService,
     private fccsvc: AmateurSearchService,
@@ -27,11 +28,16 @@ export class MenuComponent {
     this.router.navigateByUrl(`/amateur/search/${this.searchCallsign}`);
   }
   ngOnInit(): void {
-
+    this.isAdmin = this.sys.isAdmin;
     this.menus = [
-      new Menu("Users", "/user/list"),
+      
       new Menu("Logging", `/logging/newlog/${this.sys.userId}`),
-      new Menu("Login", "/login")
+      new Menu("Settings", "/user/settings"),
+      new Menu("Login", "/login"),
     ];
+    if(this.isAdmin){
+      this.menus.unshift(new Menu("Users", "/user/list"));
+    }
+    
   }
 }

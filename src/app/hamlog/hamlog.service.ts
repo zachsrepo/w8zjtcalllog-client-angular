@@ -24,6 +24,9 @@ export class HamlogService {
   create(hamlog: Hamlog): Observable<Hamlog> {
     return this.http.post(`${this.baseurl}`, hamlog) as Observable<Hamlog>;
   }
+  change(hamlog: Hamlog): Observable<any> {
+    return this.http.put(`${this.baseurl}/${hamlog.id}`, hamlog) as Observable<any>;
+  }
   remove(id: number): Observable<any> {
     return this.http.delete(`${this.baseurl}/${id}`) as Observable<any>;
   }

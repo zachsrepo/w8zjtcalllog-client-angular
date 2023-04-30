@@ -36,6 +36,7 @@ export class LoginPageComponent {
           this.loggersvc.isLoggedin = true;
           this.loggersvc.user = this.user;
           this.loggersvc.userId = this.user.id;
+          this.loggersvc.isAdmin = this.user.isAdmin;
           console.log("Login Successful")
           this.message = "Login Successful";
           this.loginForm.reset()
