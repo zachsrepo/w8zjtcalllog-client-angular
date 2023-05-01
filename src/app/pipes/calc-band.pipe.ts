@@ -26,6 +26,9 @@ export class CalcBandPipe implements PipeTransform {
     {
         this.band = 80;
     }
+    else if(freq === 5.3305 || freq === 5.332 || freq === 5.3465 || freq === 5.348 || freq === 5.357 || freq === 5.3585 || freq === 5.3715 || freq === 5.373 || freq === 5.4035 || freq === 5.405){
+        this.band = 60;
+    }
     else if(freq >= 7.0 && freq <= 7.3)
     {
         this.band = 40;
