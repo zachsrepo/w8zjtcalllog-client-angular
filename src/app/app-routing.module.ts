@@ -11,6 +11,7 @@ import { AmateurSearchComponent } from './amateur/amateur-search/amateur-search.
 import { HamlogListcreateComponent } from './hamlog/hamlog-listcreate/hamlog-listcreate.component';
 import { HamlogDetailComponent } from './hamlog/hamlog-detail/hamlog-detail.component';
 import { HamlogChangeComponent } from './hamlog/hamlog-change/hamlog-change.component';
+import { SettingsListComponent } from './settings/settings-list/settings-list.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:"amateur/search/:callsign", component:AmateurSearchComponent, canActivate: [authGuard]},
   {path:"hamlog/details/:id", component:HamlogDetailComponent, canActivate: [authGuard]},
   {path:"hamlog/update/:id", component:HamlogChangeComponent, canActivate: [authGuard]},
+  {path:"settings/list/:id", component:SettingsListComponent, canActivate: [authGuard]},
 ];
 
 @NgModule({

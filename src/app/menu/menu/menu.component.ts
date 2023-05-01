@@ -32,7 +32,7 @@ export class MenuComponent {
     this.menus = [
       
       new Menu("Logging", `/logging/newlog/${this.sys.userId}`),
-      new Menu("Settings", "/user/settings"),
+      new Menu("Settings", `/settings/list/${this.sys.userId}`),
       new Menu("Login", "/login"),
     ];
     if(this.isAdmin){

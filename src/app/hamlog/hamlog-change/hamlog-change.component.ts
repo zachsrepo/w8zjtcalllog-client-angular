@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HamlogService } from '../hamlog.service';
 import { LoggerService } from 'src/app/user/logger.service';
 import { Hamlog } from '../hamlog.class';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-hamlog-change',
@@ -13,13 +15,16 @@ export class HamlogChangeComponent {
   pageTitle = "Modify Contact Log"
 
   hamlog!: Hamlog;
+  hamlogCurrentDate: string | null = null;
+  datepipe: DatePipe = new DatePipe('en-US');
+
 
 
   constructor(
     private route: ActivatedRoute,
     private hamsvc: HamlogService,
     private router: Router,
-    private sys: LoggerService
+    private sys: LoggerService,
   ){}
   save(): void {
     this.hamsvc.change(this.hamlog).subscribe({
@@ -43,6 +48,8 @@ export class HamlogChangeComponent {
         if(this.sys.userId != this.hamlog.userId){
           this.router.navigateByUrl(`/logging/newlog/${this.sys.userId}`)
         }
+        
+        
       },
       error: (err) => {
         console.error(err);

@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+
+<div [ngClass]="userDefinedStyle.styleClass" *ngIf="user">
+    <table *ngIf="user">
+        <tbody>
+            <tr>
+                <th>Log Mode</th>
+                <td><select [(ngModel)]="user.logMode">
+                    <option>NORMAL</option>
+                </select></td>
+            </tr>
+            <tr>
+                <th>Default Mode</th>
+                <td><select [(ngModel)]="user.defaultMode">
+                    <option>USB</option>
+                    <option>LSB</option>
+                    <option>AM</option>
+                    <option>CW</option>
+                    <option>DIG</option>
+                </select></td>
+            </tr>
+            <tr>
+                <th>Background Color</th>
+                <td><select [(ngModel)]="userBGcolor">
+                    <option value="userDefinedBackgroundColorWhite">White</option>
+                    <option value="userDefinedBackgroundColorAqua">Aqua</option>
+                </select></td>
+            </tr>
+            <tr>
+                <th>Font Size</th>
+                <td><select [(ngModel)]="userFontSize">
+
+                    <option value="">Default</option>
+                    <option value="userDefinedFontsize12">1.2em</option>
+                    <option value="userDefinedFontsize18">1.8em</option>
+                </select></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<span>this is some text</span>
+
+<button (click)="save()">Save</button>
