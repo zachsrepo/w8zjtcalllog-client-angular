@@ -14,6 +14,7 @@ export class MenuComponent {
   searchCallsign: string = "";
   menus: Menu[] = []
   isAdmin: boolean = true;
+  username: string = "";
   constructor(
     private usrsvc: UserService,
     private fccsvc: AmateurSearchService,
@@ -29,6 +30,8 @@ export class MenuComponent {
   }
   ngOnInit(): void {
     this.isAdmin = this.sys.isAdmin;
+    this.username = this.sys.username;
+
     this.menus = [
       
       new Menu("Logging", `/logging/newlog/${this.sys.userId}`),

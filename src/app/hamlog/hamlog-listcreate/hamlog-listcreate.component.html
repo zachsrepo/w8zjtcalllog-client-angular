@@ -1,8 +1,10 @@
 
 <app-menu></app-menu>
+<div>
 <header>
     <span id="pageTitle">{{pageTitle}}</span>
     <span id="searchResCount" *ngIf="!searching">{{searchResMessage}}</span>
+    
 </header>
 <select id="quantity" [(ngModel)]="logsToShow" (ngModelChange)="refresh()" *ngIf="searching">
     <option>10</option>
@@ -43,7 +45,7 @@
         <tr *ngFor="let h of hamlogs | sorthamlog:sortColumn:sortAsc">
             
             <td>{{h.callsign}}</td>
-            <td>{{h.firstName}} {{h.lastName}}</td>
+            <td>{{h.fullName}}</td>
             <td>{{h.frequency}}</td>
             <td>{{h.band}}</td>
             <td>{{h.mode}}</td>
@@ -66,7 +68,7 @@
         <tr *ngFor="let h of searchHamLogs | sorthamlog:sortColumn:sortAsc">
             
             <td>{{h.callsign}}</td>
-            <td>{{h.firstName}} {{h.lastName}}</td>
+            <td>{{h.fullame}}</td>
             <td>{{h.frequency}}</td>
             <td>{{h.band}}</td>
             <td>{{h.mode}}</td>
@@ -96,16 +98,16 @@
             <th>Mode</th>
             <th>Power</th>
             <th>Sent</th>
-            <th>Rec</th>
-            <th>Name</th>
+         
+            <th>Date</th>
             
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><input id="callsign" [(ngModel)]="newlog.callsign" (blur)="search()" (focus)="clear()"></td>
+            <td><input [(ngModel)]="newlog.callsign" (blur)="search()" (focus)="clear()"></td>
             <td><input [(ngModel)]="enteredfreq" (ngModelChange)="freqChange()" (blur)="freqBlur()"></td>
-            <td><input [(ngModel)]="newlog.band"></td>
+            <td><input [(ngModel)]="newlog.band" size="3"></td>
             <td><select [(ngModel)]="newlog.mode">
                 <option>LSB</option>
                 <option>USB</option>
@@ -114,32 +116,34 @@
                 <option>DIG</option>
             </select></td>
             <td><input [(ngModel)]="newlog.power"></td>
-            <td><input [(ngModel)]="newlog.rsTsent"></td>
-            <td><input [(ngModel)]="newlog.rsTrec"></td>
-            <td><input [(ngModel)]="newlog.fullName"></td>
+            <td><input [(ngModel)]="newlog.rsTsent" size="3"></td>
+  
+            <td><input [ngModel]="newlog.dateAndTime | date:'medium'"></td>
             
         </tr>
     </tbody>
     <thead>
         <tr>
-            <th>First Name</th>
-            <th>Address</th>
+            
+            <th>Name</th>
+ 
             <th>City</th>
             <th>State</th>
             <th>Zip</th>
             <th>Country</th>
-            <th>Date</th>
+            <th>Rec</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><input id="firstname" [(ngModel)]="newlog.firstName"></td>
-            <td><input [(ngModel)]="newlog.address"></td>
+            
+            <td><input [(ngModel)]="newlog.fullName"></td>
+
             <td><input [(ngModel)]="newlog.city"></td>
             <td><input [(ngModel)]="newlog.state" size="3"></td>
-            <td><input [(ngModel)]="newlog.postalCode"></td>
+            <td><input [(ngModel)]="newlog.postalCode" size="6"></td>
             <td><input [(ngModel)]="newlog.country"></td>
-            <td><input [ngModel]="newlog.dateAndTime | date:'medium'"></td>
+            <td><input [ngModel]="newlog.rsTrec" size="3"></td>
         </tr>
     </tbody>
 </table>
@@ -154,4 +158,6 @@
 <button (click)="search()" class="btn btn-primary btn-sm">Search</button>
 <button (click)="save()" class="btn btn-success btn-sm">Log Contact</button>
 <span id="WARN">{{warnMessage}} {{warnMessageDesc}}</span>
+<span id="success" *ngIf="logpost">{{successMessage}}</span>
+</div>
 </div>

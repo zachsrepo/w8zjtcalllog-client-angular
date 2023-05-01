@@ -12,6 +12,7 @@ import { FreqencyPipe } from 'src/app/pipes/freqency.pipe';
 import { CalcBandPipe } from 'src/app/pipes/calc-band.pipe';
 
 
+
 @Component({
   selector: 'app-hamlog-listcreate',
   templateUrl: './hamlog-listcreate.component.html',
@@ -20,6 +21,7 @@ import { CalcBandPipe } from 'src/app/pipes/calc-band.pipe';
 export class HamlogListcreateComponent {
   pageTitle = "HamLog";
   user!: User;
+
   hamlogs: Hamlog[] = [];
   searchHamLogs: Hamlog[] = [];
   searchResCount: number = 0;
@@ -31,13 +33,16 @@ export class HamlogListcreateComponent {
   sortColumn: string = "id";
   sortAsc: boolean = false;
   searching: boolean = false;
+  logpost: boolean = false;
   pipe = new DatePipe('en-US');
   freqpipe = new FreqencyPipe;
   bandpipe = new CalcBandPipe;
   enteredfreq: string = "";
   warnMessage: string = "";
   warnMessageDesc: string = "";
+  successMessage: string = "";
   regExp = /[a-zA-Z]/g;
+
 
   constructor(
     private urssvc: UserService,
@@ -77,7 +82,20 @@ export class HamlogListcreateComponent {
     this.user.defaultPower = this.newlog.power;
     this.hamsvc.create(this.newlog).subscribe({
       next: (res) => {
+        this.successMessage = "Entry Successful";
+        this.logpost = true;
+        this.newlog.fullName = "";
+        this.newlog.firstName = "";
+        this.newlog.lastName = "";
+        this.newlog.address = "";
+        this.newlog.city = "";
+        this.newlog.state = "";
+        this.newlog.postalCode = "";
+        this.newlog.fccId = "";
+        this.newlog.callsign = "";
+      
         console.debug(res, "Log Created!");
+        this.refresh();
         this.urssvc.change(this.user).subscribe({
           next: (res) => {
             console.debug("User Updated");
@@ -97,6 +115,8 @@ export class HamlogListcreateComponent {
     this.newlog.callsign = "";
     this.isaham = "";
     this.warnMessage = "";
+    this.successMessage = "";
+    this.logpost = false;
     this.searching = true;
   }
   freqChange(): void {
@@ -129,6 +149,7 @@ export class HamlogListcreateComponent {
           this.searchResMessage = `You have worked ${this.newlog.callsign} ${this.searchResCount} Times`;
         }
         this.searching = false;
+        // runs when the call only exists in the user database
         if(this.searchHamLogs.length >= 1 && ((this.hamEn?.callsign != this.searchHamLogs[0].callsign) || this.hamEn === undefined)){
           this.newlog.firstName = this.searchHamLogs[0].firstName;
           this.newlog.fullName = this.searchHamLogs[0].fullName;
@@ -139,10 +160,12 @@ export class HamlogListcreateComponent {
           this.newlog.postalCode = this.searchHamLogs[0].postalCode;
           console.debug("Ham did not exist in fcc database but did exist in your logs");
         }
+        // runs when the call does not exist in any database.
         if(this.searchHamLogs.length < 1 && this.isaham === "notfound"){
           console.warn("NOT FOUND");
           this.warnMessage = "NOT FOUND!";
           this.newlog.fullName = "";
+          this.newlog.fccId = "";
           this.newlog.firstName = "";
           this.newlog.lastName = "";
           this.newlog.address = "";
@@ -195,7 +218,8 @@ export class HamlogListcreateComponent {
         this.user = res;
         // this.hamlogs = this.user.hamLogs;
         this.newlog.mode = this.user.defaultMode;
-        this.newlog.power = +this.user.defaultPower;        
+        this.newlog.power = +this.user.defaultPower;    
+ 
       },
       error: (err) => {
         console.error(err);

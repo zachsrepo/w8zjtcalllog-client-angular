@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { encrypt } from 'node_modules/dsi-encrypt-password/index.js';
+
+
 
 @Component({
   selector: 'app-user-change',
@@ -12,6 +15,7 @@ export class UserChangeComponent {
   user: User = new User();
   pageTitle = "Modify User";
   admin!: string;
+  password: string = "";
 
   constructor(
     private usrsvc: UserService,
@@ -20,6 +24,10 @@ export class UserChangeComponent {
   ){}
   save():void {
     this.user.callsign = this.user.callsign.toUpperCase();
+    // put encrypt here 
+    if(this.password != this.user.password){
+      this.user.password = encrypt(this.password);
+    }
     (this.admin === "true") ? this.user.isAdmin = true : this.user.isAdmin = false;
     this.usrsvc.change(this.user).subscribe({
       next: (res) => {
@@ -34,10 +42,12 @@ export class UserChangeComponent {
   }
   ngOnInit(): void {
     let id = this.route.snapshot.params["id"];
+
     this.usrsvc.get(id).subscribe({
       next: (res) => {
         this.user = res;
         (this.user.isAdmin) ? this.admin = "true" : this.admin = "false";
+        this.password = this.user.password;
         
         
         

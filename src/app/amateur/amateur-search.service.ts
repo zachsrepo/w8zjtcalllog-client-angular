@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class AmateurSearchService {
   
   callsignSearch: string = "";
-  baseurl: string = "http://localhost:5000/api/ens"
+  // baseurl: string = "http://localhost:5000/api/ens"
+   baseurl: string = "https://w8zjt.net:7443/api/ens";
   constructor(
     private http: HttpClient
   ) { }

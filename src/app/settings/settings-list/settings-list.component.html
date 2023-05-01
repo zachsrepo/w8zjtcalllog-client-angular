@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 
-<div [ngClass]="userDefinedStyle.styleClass" *ngIf="user">
+<div>
     <table *ngIf="user">
         <tbody>
             <tr>
@@ -21,18 +21,19 @@
             </tr>
             <tr>
                 <th>Background Color</th>
-                <td><select [(ngModel)]="userBGcolor">
-                    <option value="userDefinedBackgroundColorWhite">White</option>
-                    <option value="userDefinedBackgroundColorAqua">Aqua</option>
+                <td><select >
+                    <option value="White" >White</option>
+                    <option value="Aqua">Aqua</option>
                 </select></td>
             </tr>
             <tr>
                 <th>Font Size</th>
-                <td><select [(ngModel)]="userFontSize">
+                <td><select >
 
-                    <option value="">Default</option>
-                    <option value="userDefinedFontsize12">1.2em</option>
-                    <option value="userDefinedFontsize18">1.8em</option>
+                    <option value=".8em">-20%</option>
+                    <option value="1.0em">default</option>
+                    <option value="1.2em">20%</option>
+                    <option value="1.3em">30%</option>
                 </select></td>
             </tr>
         </tbody>

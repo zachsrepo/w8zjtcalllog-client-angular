@@ -3,7 +3,7 @@ import { UserService } from 'src/app/user/user.service';
 import { User } from 'src/app/user/user.class';
 import { LoggerService } from 'src/app/user/logger.service';
 import { Router } from '@angular/router';
-import { Style } from '../style.class';
+
 
 @Component({
   selector: 'app-settings-list',
@@ -17,9 +17,8 @@ export class SettingsListComponent {
   jsonStyleString: string = "";
   styleColor: string = "";
   userId: number = 0;
-  userDefinedStyle: Style = new Style();
-  userBGcolor: string = "";
-  userFontSize: string = "";
+
+
   
 
   constructor(
@@ -31,9 +30,8 @@ export class SettingsListComponent {
   ){}
 
   save(): void {
-    this.userDefinedStyle.styleClass = this.userBGcolor + " " + this.userFontSize;
-    this.jsonStyleString = JSON.stringify(this.userDefinedStyle);
-    this.user.style = this.jsonStyleString;
+
+
     this.usrsvc.change(this.user).subscribe({
       next: (res) => {
         console.debug("User Settings Updated");
@@ -46,22 +44,23 @@ export class SettingsListComponent {
       }
     })
   }
-
-
-  ngOnInit(): void {
+  refresh(): void {
     this.userId = this.sys.userId;
     this.usrsvc.get(this.userId).subscribe({
       next: (res) => {
         this.user = res;
-        this.userDefinedStyle = JSON.parse(this.user.style);
+        // this.userDefinedStyle = JSON.parse(this.user?.style);
 
-        
       },
       error: (err) => {
         console.error(err);
       }
     })
+  }
 
+  ngOnInit(): void {
+
+    this.refresh();
 
 
 
