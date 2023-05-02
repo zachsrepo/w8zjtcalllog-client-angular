@@ -44,11 +44,19 @@
                 </tr>
                 <tr>
                     <td>RST Sent</td>
-                    <td><input [(ngModel)]="hamlog.rsTsent" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.rsTsent" readonly disabled="true">
+                        <div class="form-check"><label class="form-check-label" for="sent">QSL Sent?</label>
+                            <input class="form-check-input" id="sent" type="checkbox" [(ngModel)]="hamlog.rstSentbool" disabled="true"> </div></td>
                 </tr>
                 <tr>
                     <td>RST rcv</td>
-                    <td><input [(ngModel)]="hamlog.rsTrec" readonly disabled="true"></td>
+                    <td><input [(ngModel)]="hamlog.rsTrec" readonly disabled="true">
+                        <div class="form-check"><label class="form-check-label" for="sent">QSL Received?</label>
+                            <input class="form-check-input" id="sent" type="checkbox" [(ngModel)]="hamlog.rstRecbool" disabled="true"> </div></td>
+                </tr>
+                <tr>
+                    <td>NET/Contest</td>
+                    <td><input [(ngModel)]="hamlog.qth" readonly disabled="true"></td>
                 </tr>
                 <tr>
                     <td>T-On</td>

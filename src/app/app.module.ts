@@ -19,6 +19,7 @@ import { HamlogDetailComponent } from './hamlog/hamlog-detail/hamlog-detail.comp
 import { CalcBandPipe } from './pipes/calc-band.pipe';
 import { HamlogChangeComponent } from './hamlog/hamlog-change/hamlog-change.component';
 import { SettingsListComponent } from './settings/settings-list/settings-list.component';
+import { AboutComponent } from './core/about/about.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SettingsListComponent } from './settings/settings-list/settings-list.co
     HamlogDetailComponent,
     CalcBandPipe,
     HamlogChangeComponent,
-    SettingsListComponent
+    SettingsListComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

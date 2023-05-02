@@ -36,6 +36,7 @@ export class MenuComponent {
       
       new Menu("Logging", `/logging/newlog/${this.sys.userId}`),
       new Menu("Settings", `/settings/list/${this.sys.userId}`),
+      new Menu("About", "/about"),
       new Menu("Login", "/login"),
     ];
     if(this.isAdmin){

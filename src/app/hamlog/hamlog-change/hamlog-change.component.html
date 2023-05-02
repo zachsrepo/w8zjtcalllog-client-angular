@@ -50,11 +50,20 @@
                 </tr>
                 <tr>
                     <td>RST Sent</td>
-                    <td><input [(ngModel)]="hamlog.rsTsent"></td>
+                    <td><input [(ngModel)]="hamlog.rsTsent">
+                        <div class="form-check"><label class="form-check-label" for="sent"> QSL Sent?</label>
+                        <input class="form-check-input" id="sent" type="checkbox" [(ngModel)]="hamlog.rstSentbool"> </div></td>
                 </tr>
                 <tr>
                     <td>RST rcv</td>
-                    <td><input [(ngModel)]="hamlog.rsTrec"></td>
+                    <td><input [(ngModel)]="hamlog.rsTrec">
+                        <div class="form-check"><label class="form-check-label" for="sent">QSL Received?</label>
+                            <input class="form-check-input" id="sent" type="checkbox" [(ngModel)]="hamlog.rstRecbool"> </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>NET/Contest</td>
+                    <td><input [(ngModel)]="hamlog.qth"></td>
                 </tr>
                 <tr>
                     <td>T-On</td>

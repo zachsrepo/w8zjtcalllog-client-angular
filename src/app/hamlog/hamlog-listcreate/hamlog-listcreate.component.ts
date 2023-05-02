@@ -10,7 +10,7 @@ import { Amateuren } from 'src/app/amateur/amateuren.class';
 import { HamlogService } from '../hamlog.service';
 import { FreqencyPipe } from 'src/app/pipes/freqency.pipe';
 import { CalcBandPipe } from 'src/app/pipes/calc-band.pipe';
-import { Pref } from 'src/app/user/pref.class';
+
 
 
 
@@ -35,7 +35,7 @@ export class HamlogListcreateComponent {
   sortAsc: boolean = false;
   searching: boolean = false;
   logpost: boolean = false;
-  pref!: Pref;
+
   showNetColumn: boolean = false;
   pipe = new DatePipe('en-US');
   freqpipe = new FreqencyPipe;
@@ -82,8 +82,8 @@ export class HamlogListcreateComponent {
     this.newlog.frequency = this.freqpipe.transform(this.enteredfreq);
     let offDate = Date.now();
     this.newlog.timeOff = this.pipe.transform(offDate, 'yyyy-MM-ddThh:mm:ss.sss');
-    this.user.defaultMode = this.newlog.mode;
-    this.user.defaultPower = this.newlog.power;
+    this.user.lastWorkedMode = this.newlog.mode;
+    this.user.lastWorkedPower = this.newlog.power;
     this.hamsvc.create(this.newlog).subscribe({
       next: (res) => {
         this.successMessage = "Entry Successful";
@@ -225,11 +225,8 @@ export class HamlogListcreateComponent {
       next: (res) => {
         this.user = res;
         // this.hamlogs = this.user.hamLogs;
-        this.newlog.mode = this.user.defaultMode;
-        this.newlog.power = +this.user.defaultPower;   
-        this.pref = JSON.parse(this.user.style);
-         
- 
+        this.newlog.mode = this.user.lastWorkedMode;
+        this.newlog.power = +this.user.lastWorkedPower;   
       },
       error: (err) => {
         console.error(err);

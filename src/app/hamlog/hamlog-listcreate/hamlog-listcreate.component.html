@@ -23,7 +23,7 @@
             
             <th>Callsign</th>
             <th>Name</th>
-            <th>Net</th>
+            <th *ngIf="user.showNetColumn">Net</th>
             <th>Frequency</th>
             <th>Band</th>
             <th>Mode</th>
@@ -47,7 +47,7 @@
             
             <td>{{h.callsign}}</td>
             <td>{{h.fullName}}</td>
-            <td>{{h.qth}}</td>
+            <td *ngIf="user.showNetColumn">{{h.qth}}</td>
             <td>{{h.frequency}}</td>
             <td>{{h.band}}</td>
             <td>{{h.mode}}</td>
@@ -71,7 +71,7 @@
             
             <td>{{h.callsign}}</td>
             <td>{{h.fullName}}</td>
-            <td>{{h.qth}}</td>
+            <td *ngIf="user.showNetColumn">{{h.qth}}</td>
             <td>{{h.frequency}}</td>
             <td>{{h.band}}</td>
             <td>{{h.mode}}</td>
@@ -101,6 +101,7 @@
             <th>Mode</th>
             <th>Power</th>
             <th>Sent</th>
+            <th></th>
          
             <th>Date</th>
             
@@ -120,6 +121,7 @@
             </select></td>
             <td><input [(ngModel)]="newlog.power"></td>
             <td><input [(ngModel)]="newlog.rsTsent" size="3"></td>
+            <td><input type="checkbox" [(ngModel)]="newlog.rstSentbool" size="0"></td>
   
             <td><input [ngModel]="newlog.dateAndTime | date:'medium'"></td>
             
@@ -135,6 +137,7 @@
             <th>Zip</th>
             <th>Country</th>
             <th>Rec</th>
+            <th></th>
             <th>Net / Contest</th>
         </tr>
     </thead>
@@ -148,6 +151,7 @@
             <td><input [(ngModel)]="newlog.postalCode" size="6"></td>
             <td><input [(ngModel)]="newlog.country"></td>
             <td><input [(ngModel)]="newlog.rsTrec" size="3"></td>
+            <td><input type="checkbox" [(ngModel)]="newlog.rstRecbool" size="0"></td>
             <td><input [(ngModel)]="newlog.qth"></td>
         </tr>
     </tbody>

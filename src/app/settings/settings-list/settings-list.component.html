@@ -1,7 +1,8 @@
 <app-menu></app-menu>
 
 <div>
-<input type="checkbox" [(ngModel)]="pref.showNetColumn">
+    <label>Show NET column on results? </label>
+<input type="checkbox" [(ngModel)]="user.showNetColumn" *ngIf="user">
 </div>
 
 <span>this is some text</span>

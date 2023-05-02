@@ -29,5 +29,7 @@ export class Hamlog {
     logCount: number = 0;
     dateAndTime: string | null = null;
     timeOff: string | null = null;
+    rstSentbool: boolean = false;
+    rstRecbool: boolean = false;
 
 }
