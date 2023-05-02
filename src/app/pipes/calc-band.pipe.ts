@@ -13,55 +13,55 @@ export class CalcBandPipe implements PipeTransform {
 
     let newfreq = this.freqpipe.transform(frequency);
     let arr = newfreq.split(".");
-    let freq = Number(arr[0] + "." + arr[1]);
+    let freq = Number(arr[0] + "." + arr[1] + arr[2]);
     if(freq === 0)
     {
         this.band = 0;
     }
-    else if(freq >= 1.8 && freq <= 2.0)
+    else if(freq >= 1.8000 && freq <= 2.0000)
     {
         this.band = 160;
     }
-    else if(freq >= 3.5 && freq <= 4.0)
+    else if(freq >= 3.5000 && freq <= 4.0000)
     {
         this.band = 80;
     }
-    else if(freq === 5.3305 || freq === 5.332 || freq === 5.3465 || freq === 5.348 || freq === 5.357 || freq === 5.3585 || freq === 5.3715 || freq === 5.373 || freq === 5.4035 || freq === 5.405){
+    else if(freq === 5.3305 || freq === 5.3320 || freq === 5.3465 || freq === 5.3480 || freq === 5.3570 || freq === 5.3585 || freq === 5.3715 || freq === 5.3730 || freq === 5.4035 || freq === 5.405){
         this.band = 60;
     }
-    else if(freq >= 7.0 && freq <= 7.3)
+    else if(freq >= 7.0000 && freq <= 7.3000)
     {
         this.band = 40;
     }
-    else if(freq >= 10.1 && freq <= 10.15)
+    else if(freq >= 10.1000 && freq <= 10.1500)
     {
         this.band = 30;
     }
-    else if(freq >= 14.0 && freq <= 14.35)
+    else if(freq >= 14.0000 && freq <= 14.3500)
     {
         this.band = 20;
     }
-    else if(freq >= 18.068 && freq <= 18.168)
+    else if(freq >= 18.0680 && freq <= 18.1680)
     {
         this.band = 17;
     }
-    else if(freq >= 21 && freq <= 21.45)
+    else if(freq >= 21.0000 && freq <= 21.4500)
     {
         this.band = 15;
     }
-    else if(freq >= 24.89 && freq <= 24.99)
+    else if(freq >= 24.8900 && freq <= 24.9900)
     {
         this.band = 12;
     }
-    else if(freq >= 28.0 && freq <= 29.7)
+    else if(freq >= 28.0000 && freq <= 29.7000)
     {
         this.band = 10;
     }
-    else if( freq >= 50 && freq <= 54)
+    else if( freq >= 50.0000 && freq <= 54.0000)
     {
         this.band = 6;
     }
-    else if( freq >= 144 && freq <= 148)
+    else if( freq >= 144.0000 && freq <= 148.0000)
     {
         this.band = 2;
     }

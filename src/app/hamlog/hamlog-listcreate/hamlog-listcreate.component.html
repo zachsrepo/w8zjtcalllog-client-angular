@@ -23,6 +23,7 @@
             
             <th>Callsign</th>
             <th>Name</th>
+            <th>Net</th>
             <th>Frequency</th>
             <th>Band</th>
             <th>Mode</th>
@@ -46,6 +47,7 @@
             
             <td>{{h.callsign}}</td>
             <td>{{h.fullName}}</td>
+            <td>{{h.qth}}</td>
             <td>{{h.frequency}}</td>
             <td>{{h.band}}</td>
             <td>{{h.mode}}</td>
@@ -68,7 +70,8 @@
         <tr *ngFor="let h of searchHamLogs | sorthamlog:sortColumn:sortAsc">
             
             <td>{{h.callsign}}</td>
-            <td>{{h.fullame}}</td>
+            <td>{{h.fullName}}</td>
+            <td>{{h.qth}}</td>
             <td>{{h.frequency}}</td>
             <td>{{h.band}}</td>
             <td>{{h.mode}}</td>
@@ -132,6 +135,7 @@
             <th>Zip</th>
             <th>Country</th>
             <th>Rec</th>
+            <th>Net / Contest</th>
         </tr>
     </thead>
     <tbody>
@@ -143,7 +147,8 @@
             <td><input [(ngModel)]="newlog.state" size="3"></td>
             <td><input [(ngModel)]="newlog.postalCode" size="6"></td>
             <td><input [(ngModel)]="newlog.country"></td>
-            <td><input [ngModel]="newlog.rsTrec" size="3"></td>
+            <td><input [(ngModel)]="newlog.rsTrec" size="3"></td>
+            <td><input [(ngModel)]="newlog.qth"></td>
         </tr>
     </tbody>
 </table>
@@ -155,7 +160,7 @@
     </tbody>
 </table>
 <div id="save">
-<button (click)="search()" class="btn btn-primary btn-sm">Search</button>
+<button (click)="search()" id="searchbtn" class="btn btn-primary btn-sm">Search</button>
 <button (click)="save()" class="btn btn-success btn-sm">Log Contact</button>
 <span id="WARN">{{warnMessage}} {{warnMessageDesc}}</span>
 <span id="success" *ngIf="logpost">{{successMessage}}</span>

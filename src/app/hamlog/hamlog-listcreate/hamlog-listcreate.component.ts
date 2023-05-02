@@ -10,6 +10,7 @@ import { Amateuren } from 'src/app/amateur/amateuren.class';
 import { HamlogService } from '../hamlog.service';
 import { FreqencyPipe } from 'src/app/pipes/freqency.pipe';
 import { CalcBandPipe } from 'src/app/pipes/calc-band.pipe';
+import { Pref } from 'src/app/user/pref.class';
 
 
 
@@ -34,6 +35,8 @@ export class HamlogListcreateComponent {
   sortAsc: boolean = false;
   searching: boolean = false;
   logpost: boolean = false;
+  pref!: Pref;
+  showNetColumn: boolean = false;
   pipe = new DatePipe('en-US');
   freqpipe = new FreqencyPipe;
   bandpipe = new CalcBandPipe;
@@ -94,6 +97,7 @@ export class HamlogListcreateComponent {
         this.newlog.postalCode = "";
         this.newlog.fccId = "";
         this.newlog.callsign = "";
+        this.newlog.qth = "";
       
         console.debug(res, "Log Created!");
         this.refresh();
@@ -222,7 +226,9 @@ export class HamlogListcreateComponent {
         this.user = res;
         // this.hamlogs = this.user.hamLogs;
         this.newlog.mode = this.user.defaultMode;
-        this.newlog.power = +this.user.defaultPower;    
+        this.newlog.power = +this.user.defaultPower;   
+        this.pref = JSON.parse(this.user.style);
+         
  
       },
       error: (err) => {

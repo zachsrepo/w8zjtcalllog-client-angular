@@ -32,7 +32,7 @@ export class LoginPageComponent {
     })
   }
   loginuser(){
-    this.loginForm.value.password = encrypt(this.loginForm.value.password)
+    this.loginForm.value.password = encrypt(this.loginForm.value.password);
     this.svcusr.login(this.loginForm.value.username, this.loginForm.value.password).subscribe({
       next: (res) => {
         this.user = res;

@@ -1,43 +1,7 @@
 <app-menu></app-menu>
 
 <div>
-    <table *ngIf="user">
-        <tbody>
-            <tr>
-                <th>Log Mode</th>
-                <td><select [(ngModel)]="user.logMode">
-                    <option>NORMAL</option>
-                </select></td>
-            </tr>
-            <tr>
-                <th>Default Mode</th>
-                <td><select [(ngModel)]="user.defaultMode">
-                    <option>USB</option>
-                    <option>LSB</option>
-                    <option>AM</option>
-                    <option>CW</option>
-                    <option>DIG</option>
-                </select></td>
-            </tr>
-            <tr>
-                <th>Background Color</th>
-                <td><select >
-                    <option value="White" >White</option>
-                    <option value="Aqua">Aqua</option>
-                </select></td>
-            </tr>
-            <tr>
-                <th>Font Size</th>
-                <td><select >
-
-                    <option value=".8em">-20%</option>
-                    <option value="1.0em">default</option>
-                    <option value="1.2em">20%</option>
-                    <option value="1.3em">30%</option>
-                </select></td>
-            </tr>
-        </tbody>
-    </table>
+<input type="checkbox" [(ngModel)]="pref.showNetColumn">
 </div>
 
 <span>this is some text</span>

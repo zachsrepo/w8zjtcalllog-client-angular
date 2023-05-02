@@ -3,6 +3,7 @@ import { UserService } from 'src/app/user/user.service';
 import { User } from 'src/app/user/user.class';
 import { LoggerService } from 'src/app/user/logger.service';
 import { Router } from '@angular/router';
+import { Pref } from 'src/app/user/pref.class';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class SettingsListComponent {
 
 
   user!: User;
+  pref!: Pref;
   jsonStyleString: string = "";
   styleColor: string = "";
   userId: number = 0;
@@ -31,6 +33,7 @@ export class SettingsListComponent {
 
   save(): void {
 
+    this.user.style = JSON.stringify(this.pref)
 
     this.usrsvc.change(this.user).subscribe({
       next: (res) => {
@@ -49,7 +52,7 @@ export class SettingsListComponent {
     this.usrsvc.get(this.userId).subscribe({
       next: (res) => {
         this.user = res;
-        // this.userDefinedStyle = JSON.parse(this.user?.style);
+        this.pref = JSON.parse(this.user.style);
 
       },
       error: (err) => {
