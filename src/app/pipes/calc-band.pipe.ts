@@ -65,6 +65,9 @@ export class CalcBandPipe implements PipeTransform {
     {
         this.band = 2;
     }
+    else{
+        this.band = 0;
+    }
     return this.band;
   }
 

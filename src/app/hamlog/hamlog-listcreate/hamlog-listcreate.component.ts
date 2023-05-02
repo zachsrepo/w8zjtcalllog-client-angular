@@ -75,6 +75,7 @@ export class HamlogListcreateComponent {
       this.warnMessageDesc = "Must contain a decimal point after MHZ";
       return;
     }
+  
     this.newlog.frequency = this.freqpipe.transform(this.enteredfreq);
     let offDate = Date.now();
     this.newlog.timeOff = this.pipe.transform(offDate, 'yyyy-MM-ddThh:mm:ss.sss');
@@ -129,6 +130,9 @@ export class HamlogListcreateComponent {
       return;
     } else {
       this.newlog.band = this.bandpipe.transform(this.enteredfreq);
+    }
+    if(this.newlog.band === 0){
+      this.warnMessage = "Caution: Out of band! ShortWave!";
     }
     console.log(this.newlog.band);
 
