@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class HamlogService {
   // baseurl: string = "http://localhost:5000/api/hamlogs";
-   baseurl: string = "https://w8zjt.net:7443/api/hamlogs";
+   baseurl: string = "https://api.w8zjt.net:7443/api/hamlogs";
 
   constructor(
     private http: HttpClient

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class UserService {
 
   // baseurl: string = 'http://localhost:5000/api/users';
-  baseurl: string = 'https://w8zjt.net:7443/api/users';
+  baseurl: string = 'https://api.w8zjt.net:7443/api/users';
   constructor(
     private http: HttpClient,
     private readonly loggerService: LoggerService,
