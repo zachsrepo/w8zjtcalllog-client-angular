@@ -12,12 +12,14 @@ import { HamlogListcreateComponent } from './hamlog/hamlog-listcreate/hamlog-lis
 import { HamlogDetailComponent } from './hamlog/hamlog-detail/hamlog-detail.component';
 import { HamlogChangeComponent } from './hamlog/hamlog-change/hamlog-change.component';
 import { SettingsListComponent } from './settings/settings-list/settings-list.component';
+import { RadioComponent } from './radio/radio/radio.component';
 
 
 const routes: Routes = [
   {path:"", redirectTo:"login", pathMatch:"full"},
   {path:"login", component:LoginPageComponent},
   {path:"home", component:HomeComponent, canActivate: [authGuard]},
+  {path:"radio", component:RadioComponent, canActivate: [authGuard]},
   {path:"user/list", component:UserListComponent, canActivate: [authGuard]},
   {path:"user/detail/:id", component:UserDetailComponent, canActivate: [authGuard]},
   {path:"user/change/:id", component:UserChangeComponent, canActivate: [authGuard]},
