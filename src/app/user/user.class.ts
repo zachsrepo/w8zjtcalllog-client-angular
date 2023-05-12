@@ -20,6 +20,7 @@ export class User{
     lastWorkedMode: string = "";
     lastWorkedPower: number = 0;
     defaultPower: number = 100;
+    recordCount: number = 0;
     status: string = "NEW";
     hamLogs!: Hamlog[]
 }

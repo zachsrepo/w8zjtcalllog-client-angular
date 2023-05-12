@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Record Count</th>
                 <th>Admin</th>
                 <th>Name</th>
                 <th>Username</th>
@@ -21,6 +22,7 @@
         <tbody>
             <tr *ngFor="let u of users">
                 <td> {{u.id}}</td>
+                <td>{{u.recordCount}}</td>
                 <td>{{(u.isAdmin) ? "YES" : "NO"}}</td>
                 <td>{{u.firstName}} {{u.lastName}}</td>
                 <td>{{u.userName}}</td>
