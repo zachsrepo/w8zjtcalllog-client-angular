@@ -98,6 +98,7 @@ export class HamlogListcreateComponent {
         this.newlog.fccId = "";
         this.newlog.callsign = "";
         this.newlog.qth = "";
+        this.newlog.comments = "";
       
         console.debug(res, "Log Created!");
         this.refresh();
