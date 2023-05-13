@@ -23,6 +23,8 @@ import { AboutComponent } from './core/about/about.component';
 import { RadioComponent } from './radio/radio/radio.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,9 @@ import { RadioComponent } from './radio/radio/radio.component';
     HamlogChangeComponent,
     SettingsListComponent,
     AboutComponent,
-    RadioComponent
+    RadioComponent,
+    
+
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,7 @@ import { RadioComponent } from './radio/radio/radio.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
 
   ],
   providers: [],

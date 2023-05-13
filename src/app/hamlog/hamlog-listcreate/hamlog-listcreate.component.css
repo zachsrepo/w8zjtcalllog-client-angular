@@ -49,3 +49,7 @@ header {
 #searchbtn {
   margin-left: 20px;
 }
+#recordCount {
+  font-weight: bold;
+  margin-left: 5px;
+}

@@ -35,7 +35,6 @@ export class HamlogListcreateComponent {
   sortAsc: boolean = false;
   searching: boolean = false;
   logpost: boolean = false;
-
   showNetColumn: boolean = false;
   pipe = new DatePipe('en-US');
   freqpipe = new FreqencyPipe;
@@ -84,6 +83,7 @@ export class HamlogListcreateComponent {
     this.newlog.timeOff = this.pipe.transform(offDate, 'yyyy-MM-ddThh:mm:ss.sss');
     this.user.lastWorkedMode = this.newlog.mode;
     this.user.lastWorkedPower = this.newlog.power;
+    this.user.recordCount += 1;
     this.hamsvc.create(this.newlog).subscribe({
       next: (res) => {
         this.successMessage = "Entry Successful";
@@ -101,7 +101,7 @@ export class HamlogListcreateComponent {
         this.newlog.comments = "";
       
         console.debug(res, "Log Created!");
-        this.refresh();
+       // this.refresh();
         this.urssvc.change(this.user).subscribe({
           next: (res) => {
             console.debug("User Updated");

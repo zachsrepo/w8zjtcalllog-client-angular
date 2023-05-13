@@ -14,7 +14,7 @@
     <option>200</option>
     <option value="50000">All</option>  
 </select>
-<span id="recordCount" *ngIf="user">{{user.recordCount}}
+<span id="recordCount" *ngIf="searching && user">Rec Count: {{user.recordCount}}
 </span>
 <div class="tableFixHead">
 <table *ngIf="user" class="table-fixed">
@@ -171,4 +171,5 @@
 <span id="WARN">{{warnMessage}} {{warnMessageDesc}}</span>
 <span id="success" *ngIf="logpost">{{successMessage}}</span>
 </div>
+
 </div>
