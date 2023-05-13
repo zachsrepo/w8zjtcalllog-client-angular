@@ -21,6 +21,7 @@ import { HamlogChangeComponent } from './hamlog/hamlog-change/hamlog-change.comp
 import { SettingsListComponent } from './settings/settings-list/settings-list.component';
 import { AboutComponent } from './core/about/about.component';
 import { RadioComponent } from './radio/radio/radio.component';
+import { DxspotComponent } from './dxspots/dxspot/dxspot.component';
 
 
 
@@ -45,6 +46,7 @@ import { RadioComponent } from './radio/radio/radio.component';
     SettingsListComponent,
     AboutComponent,
     RadioComponent,
+    DxspotComponent,
     
 
   ],

@@ -5,6 +5,9 @@ export class User{
     isAdmin: boolean = false;
     showNetColumn: boolean = false;
     showAddressColumn: boolean = false;
+    showDxSpot: boolean = false;
+    filterDxSpots: string = "";
+    spotsSortBy: string = "";
     firstName: string = "";
     lastName: string = "";
     userName: string = "";

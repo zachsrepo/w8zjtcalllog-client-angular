@@ -1,0 +1,49 @@
+
+
+<button (click)="pause()" class="btn btn-sm btn-warning" *ngIf="!paused">Pause Spotting</button>
+<button (click)="unPause()" class="btn btn-sm btn-success" *ngIf="paused">Resume</button>
+<div class="tableFixHead">
+    <table *ngIf="spots" class="table-fixed">
+        <thead>
+            
+            
+            <tr>
+                
+                <th>Call</th>
+                <th>Frequency</th>
+                <th>DX Call</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Band</th>
+                <th>DX Name</th>
+                <th>DX Cont</th>
+                <th>DX Prefix</th>
+                <th>Comments</th>
+                <th>Details</th>
+                
+   
+                
+                
+
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of spots">
+                
+                <td>{{s.call}}</td>
+                <td>{{s.freq}}</td>
+                <td>{{s.dxcall}}</td>
+                <td>{{s.time | date:'H:mm'}}</td>
+                <td>{{s.time | date:'shortDate'}}</td>
+                <td>{{s.band}}</td>
+                <td>{{s.dxName}}</td>
+                <td>{{s.dxCont}}</td>
+                <td>{{s.dxPrefix}}</td>
+                <td>{{s.comment}}</td>
+                <td><a routerLink="/spot/details/{{s.nr}}">Details</a></td>
+            
+            </tr>
+        </tbody>
+    </table>
+</div>

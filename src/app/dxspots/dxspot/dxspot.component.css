@@ -1,0 +1,13 @@
+.tableFixHead          { overflow: auto; height: 200px; }
+.tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: auto; table-layout: fixed; margin-left: 20px; }
+th, td { padding: 2px 3px; }
+th     { background:#eee; }
+th a{ text-decoration: none; color: black; font-weight: bold;}
+tr td {overflow-x: hidden; white-space: nowrap;}
+
+ tr:nth-child(even) {
+  background-color: #f2f2f2;
+} 
