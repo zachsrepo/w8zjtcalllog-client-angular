@@ -1,7 +1,20 @@
 
 
+<header>
+
+    
+    <span id="pageTitle">{{pageTitle}}</span> 
+</header>
+<select id="quantity" [(ngModel)]="spotsToShow" (ngModelChange)="refresh()">
+    <option>10</option>
+    <option>25</option>
+    <option>50</option>
+    <option>100</option>
+    <option>200</option>
+    <option value="50000">All</option>  
+</select>
 <button (click)="pause()" class="btn btn-sm btn-warning" *ngIf="!paused">Pause Spotting</button>
-<button (click)="unPause()" class="btn btn-sm btn-success" *ngIf="paused">Resume</button>
+<button (click)="unPause()" class="btn btn-sm btn-success" *ngIf="paused">Resume Spotting</button>
 <div class="tableFixHead">
     <table *ngIf="spots" class="table-fixed">
         <thead>

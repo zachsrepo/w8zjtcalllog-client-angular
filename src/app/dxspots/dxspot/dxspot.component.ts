@@ -13,6 +13,8 @@ export class DxspotComponent {
   spots: Spot[] = [];
   timerSubscription!: Subscription;
   paused: boolean = false;
+  pageTitle = "DX Spots"
+  spotsToShow: string = "10";
 
   constructor(
     private spot:SpotService
@@ -20,6 +22,7 @@ export class DxspotComponent {
   pause(): void {
     this.timerSubscription.unsubscribe(); 
     this.paused = true;
+    
   }
   unPause():void {
     this.ngOnInit();
@@ -27,7 +30,7 @@ export class DxspotComponent {
   }
 
   refresh(): void {
-    this.spot.listSpots(50).subscribe({
+    this.spot.listSpots(Number(this.spotsToShow)).subscribe({
       next: (res) => {
         this.spots = res;
       },

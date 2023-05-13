@@ -8,6 +8,7 @@ export class User{
     showDxSpot: boolean = false;
     filterDxSpots: string = "";
     spotsSortBy: string = "";
+    spotsRefreshRate: number = 1000;
     firstName: string = "";
     lastName: string = "";
     userName: string = "";

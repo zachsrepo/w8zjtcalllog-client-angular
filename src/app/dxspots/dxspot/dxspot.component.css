@@ -11,3 +11,9 @@ tr td {overflow-x: hidden; white-space: nowrap;}
  tr:nth-child(even) {
   background-color: #f2f2f2;
 } 
+#quantity {
+  display: inline;
+}
+header {
+  display: inline;
+}

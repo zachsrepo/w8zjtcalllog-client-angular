@@ -36,6 +36,7 @@ export class HamlogListcreateComponent {
   searching: boolean = false;
   logpost: boolean = false;
   showNetColumn: boolean = false;
+  showDxSpot: boolean = false;
   pipe = new DatePipe('en-US');
   freqpipe = new FreqencyPipe;
   bandpipe = new CalcBandPipe;
@@ -228,6 +229,7 @@ export class HamlogListcreateComponent {
         // this.hamlogs = this.user.hamLogs;
         this.newlog.mode = this.user.lastWorkedMode;
         this.newlog.power = +this.user.lastWorkedPower;   
+        this.showDxSpot = this.user.showDxSpot;
       },
       error: (err) => {
         console.error(err);
