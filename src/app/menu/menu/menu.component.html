@@ -1,12 +1,33 @@
 <nav>
 
-    
-        <ul>
-        <li class="menutitle"><a class="active">W8ZJT Calllog program</a></li>
-        <li *ngFor="let m of menus">  
-            <a routerLink="{{m.route}}">{{m.display}}</a>
-        </li>
         
+        <ul>
+        <div class="hiddenlist">
+        <li class="menutitle"><a class="active">W8ZJT Calllog program</a></li>
+        <li><a routerLink="/user/list" *ngIf="isAdmin">Users</a></li>
+            <li><a routerLink="/logging/newlog/{{userId}}">Logging</a></li>
+            </div>
+            <div class="showlist">
+            <li><div class="dropdown">
+                <a class="dropbtn dropdown-toggle"     
+                >Settings</a>
+                  
+                
+                <div class="dropdown-content">
+                
+                  <a class="dropitem" routerLink="/settings/list/{{userId}}">User Settings</a>
+                  <a class="dropitem" routerLink="/spots/config/{{userId}}">DX Cluster</a>
+                  <a class="dropitem" href="#">Something else here</a>
+                
+                </div>
+              </div></li>
+              </div>
+              <div class="hiddenlist2">
+            <li><a routerLink="/radio">Radio</a></li>
+            <li><a routerLink="/about">About</a></li>
+            <li><a routerLink="/login">Login</a></li>
+        </div>
+        <div class="searchbar">
         <li class="slist">
             <button (click)="search()" class="btn btn-primary btn-sm">Search:</button>
         </li>
@@ -20,12 +41,17 @@
                 <option></option>
             </select>
         </li>
-    
-        <li style="float:right">
-            <a (click)="logout()"routerLink="logout">Logout : {{username}}</a>
+        </div>
+        <li class="lilogout">
+        <div class="logout">
             
-        </li>
+            <span><a (click)="logout()"routerLink="logout">Logout : {{username}}</a></span>
+            
+        </div>
+    </li>
     </ul>
+        
+
     
 
 </nav>

@@ -13,6 +13,7 @@ import { HamlogDetailComponent } from './hamlog/hamlog-detail/hamlog-detail.comp
 import { HamlogChangeComponent } from './hamlog/hamlog-change/hamlog-change.component';
 import { SettingsListComponent } from './settings/settings-list/settings-list.component';
 import { RadioComponent } from './radio/radio/radio.component';
+import { DxconfigComponent } from './dxspots/dxconfig/dxconfig.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:"hamlog/details/:id", component:HamlogDetailComponent, canActivate: [authGuard]},
   {path:"hamlog/update/:id", component:HamlogChangeComponent, canActivate: [authGuard]},
   {path:"settings/list/:id", component:SettingsListComponent, canActivate: [authGuard]},
+  {path:"spots/config/:id", component:DxconfigComponent, canActivate: [authGuard]},
 ];
 
 @NgModule({

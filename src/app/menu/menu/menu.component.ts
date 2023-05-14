@@ -5,6 +5,7 @@ import { AmateurSearchService } from 'src/app/amateur/amateur-search.service';
 import { Router } from '@angular/router';
 import { LoggerService } from 'src/app/user/logger.service';
 
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -15,6 +16,7 @@ export class MenuComponent {
   menus: Menu[] = []
   isAdmin: boolean = true;
   username: string = "";
+  userId: number = 0;
   constructor(
     private usrsvc: UserService,
     private fccsvc: AmateurSearchService,
@@ -28,9 +30,14 @@ export class MenuComponent {
     this.fccsvc.callsignSearch = this.searchCallsign;
     this.router.navigateByUrl(`/amateur/search/${this.searchCallsign}`);
   }
+  selectedItem: any;
+  updateCart(id: number) {
+    this.selectedItem = id;
+  }
   ngOnInit(): void {
     this.isAdmin = this.sys.isAdmin;
     this.username = this.sys.username;
+    this.userId = this.sys.userId;
 
     this.menus = [
       

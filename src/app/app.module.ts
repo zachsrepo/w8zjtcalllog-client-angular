@@ -22,6 +22,8 @@ import { SettingsListComponent } from './settings/settings-list/settings-list.co
 import { AboutComponent } from './core/about/about.component';
 import { RadioComponent } from './radio/radio/radio.component';
 import { DxspotComponent } from './dxspots/dxspot/dxspot.component';
+import { DxconfigComponent } from './dxspots/dxconfig/dxconfig.component';
+
 
 
 
@@ -47,6 +49,7 @@ import { DxspotComponent } from './dxspots/dxspot/dxspot.component';
     AboutComponent,
     RadioComponent,
     DxspotComponent,
+    DxconfigComponent,
     
 
   ],
@@ -56,6 +59,7 @@ import { DxspotComponent } from './dxspots/dxspot/dxspot.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
 
 
   ],

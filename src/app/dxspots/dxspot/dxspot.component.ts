@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { SpotService } from '../spot.service';
 import { Spot } from '../dxspot.class';
 import { Subscription, map, timer } from 'rxjs';
+import { UserService } from 'src/app/user/user.service';
+import { LoggerService } from 'src/app/user/logger.service';
+import { User } from 'src/app/user/user.class';
 
 @Component({
   selector: 'app-dxspot',
@@ -15,9 +18,13 @@ export class DxspotComponent {
   paused: boolean = false;
   pageTitle = "DX Spots"
   spotsToShow: string = "10";
+  user!: User;
+  refreshRate: number = 1000;
 
   constructor(
-    private spot:SpotService
+    private spot:SpotService,
+    private usrsvc: UserService,
+    private sys: LoggerService
   ){}
   pause(): void {
     this.timerSubscription.unsubscribe(); 
@@ -41,12 +48,25 @@ export class DxspotComponent {
   }
 
   ngOnInit(): void {
+    let userId = this.sys.userId;
+    this.usrsvc.get(userId).subscribe({
+      next: (res) => {
+        this.user = res;
+        this.refreshRate = this.user.spotsRefreshRate;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
           // timer(0, 10000) call the function immediately and every 10 seconds 
-          this.timerSubscription = timer(0, 1000).pipe( 
+          this.timerSubscription = timer(0, this.refreshRate).pipe( 
             map(() => { 
               this.refresh(); // load data contains the http request 
             }) 
           ).subscribe(); 
+          
+          
+          
   }
   ngOnDestroy(): void { 
     this.timerSubscription.unsubscribe(); 
