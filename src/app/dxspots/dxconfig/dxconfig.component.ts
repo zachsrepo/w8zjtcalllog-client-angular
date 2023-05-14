@@ -4,10 +4,12 @@ import { LoggerService } from 'src/app/user/logger.service';
 import { User } from 'src/app/user/user.class';
 import { UserService } from 'src/app/user/user.service';
 
+
 @Component({
   selector: 'app-dxconfig',
   templateUrl: './dxconfig.component.html',
-  styleUrls: ['./dxconfig.component.css']
+  styleUrls: ['./dxconfig.component.css'],
+
 
 })
 export class DxconfigComponent {

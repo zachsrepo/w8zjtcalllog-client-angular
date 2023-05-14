@@ -1,6 +1,6 @@
 
 <app-menu></app-menu>
-<div>
+<div class="parentcon">
 <header>
     <span id="pageTitle">{{pageTitle}}</span>
     <span id="searchResCount" *ngIf="!searching">{{searchResMessage}}</span>
@@ -16,7 +16,7 @@
 </select>
 <span id="recordCount" *ngIf="searching && user">Rec Count: {{user.recordCount}}
 </span>
-<div class="tableFixHead">
+<div class="tableFixHead1">
 <table *ngIf="user" class="table-fixed">
     <thead>
         

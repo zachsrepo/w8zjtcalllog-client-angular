@@ -1,0 +1,109 @@
+
+<div id="component">
+    <app-menu></app-menu>
+    <header>
+        
+        <span id="pageTitle">{{pageTitle}}</span>
+        <a *ngIf="spot" routerLink="/logging/newlog/{{userId}}" class="btn btn-primary btn-sm">Back</a>
+        
+    </header>
+    <main>
+        <table class="table table-striped table-sm" *ngIf="spot">
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td><input [(ngModel)]="spot.nr" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Callsign</td>
+                    <td><input [(ngModel)]="spot.call" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Frequency</td>
+                    <td><input [(ngModel)]="spot.freq" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>DX Callsign</td>
+                    <td><input [(ngModel)]="spot.dxcall" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Comments</td>
+                    <td><input [(ngModel)]="spot.comment" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td><input [ngModel]="spot.time | date:'H:mm'" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td><input [ngModel]="spot.time | date: 'shortDate'" readonly disabled="true"></td>
+                </tr>
+                
+                <tr>
+                    <td>Band</td>
+                    <td><input [(ngModel)]="spot.band" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>DX Prefix</td>
+                    <td><input [(ngModel)]="spot.dxPrefix" readonly disabled="true">
+                        </td>
+                </tr>
+                <tr>
+                    <td>DX Name</td>
+                    <td><input [(ngModel)]="spot.dxName" readonly disabled="true">
+                        </td>
+                </tr>
+                <tr>
+                    <td>DX CQ Zone</td>
+                    <td><input [(ngModel)]="spot.dxCqz" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>DX ITU Zone</td>
+                    <td><input [ngModel]="spot.dxItuz" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>DX Continent</td>
+                    <td><input [ngModel]="spot.dxCont" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>DX Longitude</td>
+                    <td><input [ngModel]="spot.dxLong" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>DX Latitude</td>
+                    <td><input [(ngModel)]="spot.dxLat" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Spotter Prefix</td>
+                    <td><input [(ngModel)]="spot.spotterPrefix" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Spotter Name</td>
+                    <td><input [(ngModel)]="spot.spotterName" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Spotter CQ Zone</td>
+                    <td><input [(ngModel)]="spot.spotterCqz" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Spotter ITU Zone</td>
+                    <td><input [(ngModel)]="spot.spotterItuz" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Spotter Continent</td>
+                    <td><input [(ngModel)]="spot.spotterCont" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Spotter Longitude</td>
+                    <td><input [(ngModel)]="spot.spotterLong" readonly disabled="true"></td>
+                </tr>
+                <tr>
+                    <td>Spotter Latitude</td>
+                    <td><input [(ngModel)]="spot.spotterLat" readonly disabled="true"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+    </main>
+</div>

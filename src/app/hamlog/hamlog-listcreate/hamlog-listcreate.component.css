@@ -1,4 +1,8 @@
-.tableFixHead          { overflow: auto; height: 300px; }
+::ng-deep .parentcon .tableFixHead {
+  height: 200px;
+  overflow: auto;
+}
+.tableFixHead1          { overflow: auto; height: 300px; }
 .tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
 
 /* Just common table stuff. Really. */

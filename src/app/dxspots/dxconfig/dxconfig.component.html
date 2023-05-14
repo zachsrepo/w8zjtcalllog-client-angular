@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 
-
+<div class="parentcon">
 <label>Update Rate:</label>
 <select [(ngModel)]="user.spotsRefreshRate" *ngIf="user">
     <option value="100">100 ms</option>
@@ -8,4 +8,6 @@
     <option value="10000">10 Seconds</option>
 </select><br>
 <button (click)="save()" class="btn btn-sm btn-success">Save</button>
+
 <app-dxspot></app-dxspot>
+</div>

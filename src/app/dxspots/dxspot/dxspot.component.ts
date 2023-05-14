@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { SpotService } from '../spot.service';
 import { Spot } from '../dxspot.class';
 import { Subscription, map, timer } from 'rxjs';
@@ -11,13 +11,15 @@ import { User } from 'src/app/user/user.class';
   templateUrl: './dxspot.component.html',
   styleUrls: ['./dxspot.component.css']
 })
+
+
 export class DxspotComponent {
 
   spots: Spot[] = [];
   timerSubscription!: Subscription;
   paused: boolean = false;
   pageTitle = "DX Spots"
-  spotsToShow: string = "10";
+  spotsToShow: string = "50"; 
   user!: User;
   refreshRate: number = 1000;
 

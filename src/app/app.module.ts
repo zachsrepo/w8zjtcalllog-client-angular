@@ -23,6 +23,7 @@ import { AboutComponent } from './core/about/about.component';
 import { RadioComponent } from './radio/radio/radio.component';
 import { DxspotComponent } from './dxspots/dxspot/dxspot.component';
 import { DxconfigComponent } from './dxspots/dxconfig/dxconfig.component';
+import { DxdetailComponent } from './dxspots/dxdetail/dxdetail.component';
 
 
 
@@ -50,6 +51,7 @@ import { DxconfigComponent } from './dxspots/dxconfig/dxconfig.component';
     RadioComponent,
     DxspotComponent,
     DxconfigComponent,
+    DxdetailComponent,
     
 
   ],
