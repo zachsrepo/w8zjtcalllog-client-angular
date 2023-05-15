@@ -23,6 +23,9 @@ export class DxspotComponent {
   user!: User;
   refreshRate: number = 1000;
 
+  @Input() tableHeight = "";
+  
+
   constructor(
     private spot:SpotService,
     private usrsvc: UserService,
@@ -37,6 +40,8 @@ export class DxspotComponent {
     this.ngOnInit();
     this.paused = false;
   }
+
+  
 
   refresh(): void {
     this.spot.listSpots(Number(this.spotsToShow)).subscribe({

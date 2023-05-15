@@ -15,7 +15,7 @@
 </select>
 <button (click)="pause()" class="btn btn-sm btn-warning" *ngIf="!paused">Pause Spotting</button>
 <button (click)="unPause()" class="btn btn-sm btn-success" *ngIf="paused">Resume Spotting</button>
-<div class="tableFixHead">
+<div [ngClass]="tableHeight">
     <table *ngIf="spots" class="table-fixed">
         <thead>
             

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Hamlog } from '../hamlog.class';
 import { UserService } from 'src/app/user/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { Amateuren } from 'src/app/amateur/amateuren.class';
 import { HamlogService } from '../hamlog.service';
 import { FreqencyPipe } from 'src/app/pipes/freqency.pipe';
 import { CalcBandPipe } from 'src/app/pipes/calc-band.pipe';
+import { DxspotComponent } from 'src/app/dxspots/dxspot/dxspot.component';
 
 
 
@@ -20,6 +21,8 @@ import { CalcBandPipe } from 'src/app/pipes/calc-band.pipe';
   styleUrls: ['./hamlog-listcreate.component.css']
 })
 export class HamlogListcreateComponent {
+ 
+
   pageTitle = "HamLog";
   user!: User;
 
@@ -45,6 +48,7 @@ export class HamlogListcreateComponent {
   warnMessageDesc: string = "";
   successMessage: string = "";
   regExp = /[a-zA-Z]/g;
+  tableHeight: string = "";
 
 
   constructor(
@@ -56,6 +60,11 @@ export class HamlogListcreateComponent {
     private router: Router
     
   ){}
+  ngAfterViewInit() {
+   
+  }
+
+
   selectColumn(col: string):void{
     if(col === this.sortColumn){
       this.sortAsc = !this.sortAsc;
@@ -221,6 +230,7 @@ export class HamlogListcreateComponent {
     })
   }
   refresh(): void {
+
     this.searching = true;
     let userId = this.route.snapshot.params["userId"];
     this.urssvc.get(userId).subscribe({
@@ -247,6 +257,7 @@ export class HamlogListcreateComponent {
   }
 
   ngOnInit(): void {
+    this.tableHeight = "tableFixHeadShort";
     if(this.route.snapshot.params["userId"] != this.sys.userId){
       this.router.navigateByUrl(`/login`);
     }

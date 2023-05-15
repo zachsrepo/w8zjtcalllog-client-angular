@@ -1,6 +1,8 @@
-.tableFixHead         { overflow: auto; }
+.tableFixHeadTall         { overflow: auto; height:1000px;}
+.tableFixHeadShort         { overflow: auto; height:200px;}
 
-.tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+.tableFixHeadTall thead th { position: sticky; top: 0; z-index: 1; }
+.tableFixHeadShort thead th { position: sticky; top: 0; z-index: 1; }
 
 /* Just common table stuff. Really. */
 table  { border-collapse: collapse; width: auto; table-layout: fixed; margin-left: 20px; }

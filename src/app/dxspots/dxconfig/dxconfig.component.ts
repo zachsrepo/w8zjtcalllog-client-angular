@@ -15,6 +15,7 @@ import { UserService } from 'src/app/user/user.service';
 export class DxconfigComponent {
 
   user!: User;
+  tableHeight: string = "";
 
 
   constructor(
@@ -50,6 +51,7 @@ export class DxconfigComponent {
 
 
   ngOnInit():void {
+    this.tableHeight = "tableFixHeadTall";
     this.refresh();
   }
 
